@@ -4,8 +4,8 @@ import LogoP from '../../assets/images/logo-p.png'
 import LogoSubTitle from '../../assets/images/logo-sub.png'
 import testLogo from '../../logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faEnvelope, faHome, faL, faUser } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faBook, faBookReader, faCode, faDiagramProject, faEnvelope, faHome, faL, faNewspaper, faParagraph, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faPage4, faPagelines, faRProject } from '@fortawesome/free-brands-svg-icons';
 const Sidebar = () => (
     <div className='nav-bar'>
         <Link className='logo' to='/'>
@@ -18,6 +18,12 @@ const Sidebar = () => (
             </NavLink>
             <NavLink exact="true" activeclassname="active" className="about-link" to="/about">
                 <FontAwesomeIcon icon={faUser} color='#4d4d4e' />
+            </NavLink>
+            <NavLink exact="true" activeclassname="active" className="resume-link" to="/resume">
+                <FontAwesomeIcon icon={faNewspaper} color='#4d4d4e' />
+            </NavLink>
+            <NavLink exact="true" activeclassname="active" className="project-link" to="/projects">
+                <FontAwesomeIcon icon={faDiagramProject} color='#4d4d4e' />
             </NavLink>
             <NavLink exact="true" activeclassname="active" className="contact-link" to="/contact">
                 <FontAwesomeIcon icon={faEnvelope} color='#4d4d4e' />
