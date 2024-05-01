@@ -5,7 +5,7 @@ import LogoSubTitle from '../../assets/images/logo-sub.png'
 import testLogo from '../../logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faBookReader, faCode, faDiagramProject, faEnvelope, faHome, faL, faNewspaper, faParagraph, faUser } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin, faPage4, faPagelines, faRProject } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faPage4, faPagelines, faRProject, faTwitter } from '@fortawesome/free-brands-svg-icons';
 const Sidebar = () => (
     <div className='nav-bar'>
         <Link className='logo' to='/'>
@@ -38,6 +38,11 @@ const Sidebar = () => (
             <li>
                 <a target='_blank' rel='noreferrer' href='https://leetcode.com/u/akole/'>
                     <FontAwesomeIcon icon={faCode} color='#4d4d4e'/>
+                </a>
+            </li>
+            <li>
+                <a target='_blank' rel='noreferrer' href='https://twitter.com/AkolePrathamesh'>
+                    <FontAwesomeIcon icon={faTwitter} color='#4d4d4e'/>
                 </a>
             </li>
         </ul>
