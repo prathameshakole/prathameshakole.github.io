@@ -55,22 +55,7 @@
         box-sizing: border-box;
         min-height: 150px;
     }
-
-    // .flat-button {
-    //     color: #ffd700;
-    //     font-size: 11px;
-    //     letter-spacing: 3px;
-    //     text-decoration: none;
-    //     padding: 8px 10px;
-    //     border: 1px solid #ffd700;
-    //     float: left;
-    //     border-radius: 4px;
-    //     background: 0 0;
-    //     text-transform: uppercase;
-    //     float: right;
-    //     text-align: center;
-    //     margin-right: 10px;
-    // }
+    
     .flat-button {
         background-color: #ffd700;
         color: #333;
@@ -124,7 +109,8 @@
 .leaflet-container {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 400px;
+    min-height: 300px;
     opacity: 0;
     animation: backInRight 1s 1.2s;
     animation-fill-mode: forwards;
