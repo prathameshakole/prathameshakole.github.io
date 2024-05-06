@@ -45,8 +45,10 @@
         border: 1px solid #ccc;
         padding: 1rem;
         max-height: 530px;
-        overflow: auto; 
+        overflow: auto;
         margin-top: 10px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
 
         p {
             text-align: center;
