@@ -5,11 +5,9 @@ import { useEffect, useRef } from 'react';
 
 const Logo = () => {
     const bgRef = useRef();
-    const outlineLogoRef = useRef();
     const solidLogoRef = useRef();
 
     useEffect(() => {
-        // Fade in the background
         anime({
             targets: bgRef.current,
             opacity: [0, 1],
