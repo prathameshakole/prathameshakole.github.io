@@ -1,5 +1,6 @@
 import './index.scss';
 import React from 'react';
+import Footer from '../Footer'
 import {
     SiHtml5,
     SiCss3,
@@ -7,9 +8,7 @@ import {
     SiReact,
     SiNextdotjs,
     SiMongodb,
-    SiJava,
     SiPython,
-    SiPostman,
     SiPostgresql,
     SiAmazonaws,
     SiMysql,
@@ -63,7 +62,8 @@ const About = () => {
                     <SiTypescript className='logo' />
                 </div>
             </div>
-            <Loader type="pacman"/>
+            <Loader type="pacman" />
+            <Footer/>
         </>
 
     );
