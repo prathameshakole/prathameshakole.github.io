@@ -21,6 +21,7 @@
     padding-left: 15%;
     color: #ffd700;
     font-size: 40px;
+    font-family: 'Helvetica Neue', sans-serif;  
 }
 
 .project-card {
@@ -32,6 +33,7 @@
     transition: transform 0.3s ease;
     margin-left: 15%;
     margin-top: 5%;
+    font-family: 'Helvetica Neue', sans-serif;
 
     &:hover {
         transform: translateY(-5px);
@@ -66,7 +68,7 @@
             padding: 10px 20px;
             border-radius: 4px;
             transition: background-color 0.3s ease;
-
+            font-family: 'Helvetica Neue', sans-serif;
             &:hover {
                 background-color: #ffd700;
             }

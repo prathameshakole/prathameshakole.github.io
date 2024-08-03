@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import resumePDF from '../../assets/resume/may_2024.pdf';
 import Loader from 'react-loaders';
+import Footer from '../Footer'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const Resume = () => {
@@ -34,6 +35,7 @@ const Resume = () => {
                 </div>
             </div>
             <Loader type='pacman' />
+            <Footer/>
         </>
 
     );
