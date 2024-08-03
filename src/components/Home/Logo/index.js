@@ -1,5 +1,6 @@
 import './index.scss';
 import LogoP from '../../../assets/images/logo-p.png';
+import image1 from '../../../assets/images/bg1.jpg'
 import anime from 'animejs/lib/anime.es.js';
 import { useEffect, useRef } from 'react';
 
@@ -26,10 +27,10 @@ const Logo = () => {
 
     return (
         <div className="logo-container" ref={bgRef}>
-            <img className="solid-logo" ref={solidLogoRef} src={LogoP} alt="dev" />
+            <img className="solid-logo" ref={solidLogoRef} src={image1} alt="dev" />
             <svg
-                width="559pt"
-                height="897pt"
+                width="600pt"
+                height="950pt"
                 version="1.0"
                 viewBox="0 0 559 897"
                 xmlns="http://www.w3.org/2000/svg"

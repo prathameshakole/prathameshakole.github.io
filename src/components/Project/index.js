@@ -25,12 +25,6 @@ const Project = () => {
 
         },
         {
-            title: 'Curfew E-Pass Management System',
-            description: 'lorem ipsum asbasoidbasdhfb alsdasdfasdfasdfasdac afasv asfa vavas fa sdfasdf asdfa sdfdsa gbdfgbsth s sh htafgafgasdfasd ysgdfyas fgasyfgfas faysdgf asdfiu asdifugasdiu fasdhufha sfiuasgfa sjdfba uihrvasjfnva aiusfha dsvnasdjv hasui agusahfusdh ufha sdufh asudfiha fasahf ausdhf au',
-            imageUrl: imageUrl,
-            link: '#',
-        },
-        {
             title: 'Image Processing Software',
             description: 'lorem ipsum asbasoidbasdhfb alsdasdfasdfasdfasdac afasv asfa vavas fa sdfasdf asdfa sdfdsa gbdfgbsth s sh htafgafgasdfasd ysgdfyas fgasyfgfas faysdgf asdfiu asdifugasdiu fasdhufha sfiuasgfa sjdfba uihrvasjfnva aiusfha dsvnasdjv hasui agusahfusdh ufha sdufh asudfiha fasahf ausdhf au',
             imageUrl: imageUrl,

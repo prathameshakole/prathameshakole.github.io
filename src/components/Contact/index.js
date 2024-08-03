@@ -70,11 +70,6 @@ const Contact = () => {
                                 </li>
                             </ul>
                         </form>
-                        <a href="https://www.linkedin.com/in/prathamesh-akole/" target="_blank" rel="noopener noreferrer">
-                            <button className='flat-button2'>
-                              <FaLinkedin size={20}/>
-                            </button>
-                        </a>
                     </div>
                 </div>
                 <div className="info-map">
