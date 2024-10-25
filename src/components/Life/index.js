@@ -2,7 +2,7 @@ import './index.scss';
 import React from 'react';
 import Footer from '../Footer';
 import Loader from 'react-loaders';
-import fencingvideo from '../../assets/videos/fencingvideo.mp4';
+import fencingvideo from '../../assets/videos/fencingvideo2.mp4';
 
 const Life = () => {
     return (
