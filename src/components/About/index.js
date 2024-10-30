@@ -26,23 +26,23 @@ const About = () => {
                 <div className="text-zone">
                     <h1 className='heading'>About Me</h1>
                     <p>
-                        I am a Master's student in Computer Science at Northeastern
-                        University. I have a Bachelor of Technology Degree in Information
-                        Technology from Vishwakarma Institute of Information Technology, where
-                        I graduated with Distinction.
+                        Hi, I'm Prathamesh Akole, a Computer Science grad student at Northeastern University. 
+                        My journey started in India, where I completed my Bachelor's in Information Technology 
+                        before diving into professional software development as an SDE Intern at IDeaS Revenue Solutions, a leading provider of Revenue Management Solutions for the
+                        hospitality industry. There, I worked with Java 8, Spring MVC, and JUnit to develop and test web applications and APIs for hotel booking   
+                        and pricing.
                     </p>
                     <p>
-                        I have experience as a Software Development Intern at IDeaS Revenue
-                        Solutions, a leading provider of Revenue Management Solutions for the
-                        hospitality industry. There, I worked with Java 8, Spring MVC, and
-                        JUnit to develop and test web applications and APIs for hotel booking
-                        and pricing. I also have experience as a Research Intern at VIIT,
-                        where I worked on a Computer Vision project to detect violence from
-                        CCTV footage using deep learning techniques.
+                        I'm passionate about software development and have worked on projects ranging from a Learning Management System to an AI-enabled rental platform. 
+                        My work has led to two publications in computer vision and deep learning, reflecting my interest in cutting-edge technology.
+                        I specialize in Java, Spring Boot, JavaScript and cloud technologies, always focusing on building solutions that solve real problems. 
+                        Currently, I'm exploring new technologies while pursuing my Master's, aiming to create software that makes a meaningful impact.
                     </p>
                     <p>
-                        I am passionate about applying my skills and knowledge to solve
-                        real-world problems and create a positive social impact.
+                        Beyond coding, I've had quite a diverse journey. I competed nationally in Fencing at the under-14 level, 
+                        and my artwork was featured in international exhibitions in Melbourne and Japan when I was only 12 years old. 
+                        In my downtime, you'll find me immersed in fiction, crafting poems, or exploring world cinema. 
+                        I believe these varied interests bring a unique perspective to my problem-solving approach in tech.
                     </p>
                 </div>
                 <div className="container-2 logo">
