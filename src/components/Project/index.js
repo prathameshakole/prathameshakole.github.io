@@ -16,7 +16,7 @@ const Project = () => {
             description: 'Kanbas is a comprehensive Learning Management System (LMS) inspired by Canvas, developed using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It offers robust authentication, secure data protection, and custom collaboration features, facilitating interactive online classrooms. The platform provides seamless online education experiences with intuitive course management, assignments, and assessments.' +
                 'To optimize performance, Kanbas employs caching and server-side rendering, resulting in a 40% reduction in initial load times. The frontend is deployed on Netlify, while the backend is hosted on Onrender, ensuring reliable and scalable operations.',
             imageUrl: imageUrl,
-            link: 'https://assignment6--earnest-licorice-115933.netlify.app/#/Kanbas/Dashboard',
+            link: 'https://kanbas.prathameshakole.com',
         }, 
         {
             title: 'Image Processing Software',
@@ -24,12 +24,7 @@ const Project = () => {
             imageUrl: imageUrl,
 
         },
-        {
-            title: 'Image Processing Software',
-            description: 'lorem ipsum asbasoidbasdhfb alsdasdfasdfasdfasdac afasv asfa vavas fa sdfasdf asdfa sdfdsa gbdfgbsth s sh htafgafgasdfasd ysgdfyas fgasyfgfas faysdgf asdfiu asdifugasdiu fasdhufha sfiuasgfa sjdfba uihrvasjfnva aiusfha dsvnasdjv hasui agusahfusdh ufha sdufh asudfiha fasahf ausdhf au',
-            imageUrl: imageUrl,
-            link: '#',
-        },
+        
     ];
 
     return (
