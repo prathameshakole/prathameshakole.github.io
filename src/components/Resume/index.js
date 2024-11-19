@@ -2,7 +2,7 @@ import './index.scss'
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import React, { useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import resumePDF from '../../assets/resume/october_2024.pdf';
+import resumePDF from '../../assets/resume/ui_ux.pdf';
 import Loader from 'react-loaders';
 import Footer from '../Footer'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
@@ -29,9 +29,6 @@ const Resume = () => {
                         renderMode="canvas" >
                         <Page pageNumber={pageNumber} renderTextLayer={false} />
                     </Document>
-                    <p>
-                        Page {pageNumber} of {numPages}
-                    </p>
                 </div>
             </div>
             <Loader type='pacman' />
