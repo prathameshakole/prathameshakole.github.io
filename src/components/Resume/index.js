@@ -2,7 +2,7 @@ import './index.scss'
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import React, { useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import resumePDF from '../../assets/resume/tristar.pdf';
+import resumePDF from '../../assets/resume/jan.pdf';
 import Loader from 'react-loaders';
 import Footer from '../Footer'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;

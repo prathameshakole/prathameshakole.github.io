@@ -1,10 +1,9 @@
 
 import Loader from 'react-loaders'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import './index.scss'
-import { FaLinkedin } from 'react-icons/fa'
+
 
 const Contact = () => {
     const form = useRef()
@@ -73,13 +72,7 @@ const Contact = () => {
                     </div>
                 </div>
                 <div className="info-map">
-                    Prathamesh Akole
-                    <br />
-                    <br />
-                    Northeastern University <br />
-                    Boston, Massachusetts <br />
-                    <br />
-                    <span>akoleprathamesh@gmail.com</span>
+                    
                 </div>
                 
             </div>
