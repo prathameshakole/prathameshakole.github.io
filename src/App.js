@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './components/Home';
-import About from './components/About';
+import About from './components/Home/About/About';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Project from './components/Project';
