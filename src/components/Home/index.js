@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import {useLocation} from 'react-router-dom';
 import { Box, Typography, Button } from '@mui/material';
-import { styled, keyframes } from '@mui/system';
+import { styled, keyframes, width } from '@mui/system';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loaders';
 import Footer from '../../components/Footer';
@@ -21,8 +22,12 @@ import {
     SiCplusplus,
     SiC,
     SiTypescript,
-    SiGooglecloud,
     SiTerraform,
+    SiDocker,
+    SiGit,
+    SiKubernetes,
+    SiJenkins,
+    SiPostman,
 } from 'react-icons/si';
 import { FaHandshake, FaLinkedin, FaEnvelope, FaTwitter } from 'react-icons/fa';
 
@@ -132,44 +137,59 @@ const AboutSection = styled(Box)(({ theme }) => ({
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    padding: '2rem 20%',
+    padding: '8%',
     boxSizing: 'border-box',
     backgroundColor: '#111',
     minHeight: '100vh',
     [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
-        padding: '2rem 10%',
+        padding: '10%',
     },
 }));
 
 const AboutLeft = styled(Box)(({ theme }) => ({
-    width: '50%',
+    width: '100%',
+    paddingRight: '5%',
+    textAlign: 'justify',
     animation: `${fadeIn} 1s ease-in-out both`,
     [theme.breakpoints.down('md')]: {
         width: '100%',
         textAlign: 'center',
-        marginBottom: '1rem',
+
     },
 }));
 
 const AboutRight = styled(Box)(({ theme }) => ({
     width: '50%',
-
+    display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'center',
+    paddingTop: '5%',
     alignItems: 'center',
-    gap: '1rem',
+    justifyContent: 'center',
+    gap: '20px',
     animation: `${fadeIn} 1s ease-in-out both`,
     [theme.breakpoints.down('md')]: {
+        paddingTop: '0',
         width: '100%',
+        alignItems: 'center',
     },
 }));
 
 const Home = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash === "#about") {
+            document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+        } else {
+            document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [location]);
+
     return (
         <>
             <MainContainer>
-                <HomeSection>
+                <HomeSection id="home">
                     <HomeLeft>
                         <Typography
                             variant="h1"
@@ -231,12 +251,12 @@ const Home = () => {
                     </HomeRight>
                 </HomeSection>
 
-                <AboutSection>
+                <AboutSection id="about">
                     <AboutLeft>
                         <Typography
                             variant="h1"
                             sx={{
-                                color: '#fff',
+                                color: '#ffd700',
                                 fontFamily: 'Coolvetica',
                                 fontWeight: 400,
                                 mb: 2,
@@ -244,20 +264,21 @@ const Home = () => {
                         >
                             About Me
                         </Typography>
-                        <Typography variant="body1" sx={{ color: '#fff', mb: 2, lineHeight: 1.5 }}>
+
+                        <Typography variant="h4" sx={{ color: '#fff', fontFamily: 'Coolvetica', mb: 2, lineHeight: 1 }}>
                             Hi, I'm Prathamesh Akole, a Computer Science grad student at Northeastern University.
                             My journey started in India, where I completed my Bachelor's in Information Technology
                             before diving into professional software development as an SDE Intern at IDeaS Revenue Solutions,
                             a leading provider of Revenue Management Solutions for the hospitality industry.
                             There, I worked with Java 8, Spring MVC, and JUnit to develop and test web applications and APIs for hotel booking and pricing.
                         </Typography>
-                        <Typography variant="body1" sx={{ color: '#fff', mb: 2, lineHeight: 1.5 }}>
+                        <Typography variant="h4" sx={{ color: '#fff', fontFamily: 'Coolvetica', mb: 2, lineHeight: 1 }}>
                             I'm passionate about software development and have worked on projects ranging from a Learning Management System to an AI-enabled rental platform.
                             My work has led to two publications in computer vision and deep learning, reflecting my interest in cutting-edge technology.
                             I specialize in Java, Spring Boot, JavaScript and cloud technologies, always focusing on building solutions that solve real problems.
                             Currently, I'm exploring new technologies while pursuing my Master's, aiming to create software that makes a meaningful impact.
                         </Typography>
-                        <Typography variant="body1" sx={{ color: '#fff', lineHeight: 1.5 }}>
+                        <Typography variant="h4" sx={{ color: '#fff', fontFamily: 'Coolvetica', mb: 2, lineHeight: 1 }}>
                             Beyond coding, I've had quite a diverse journey. I competed nationally in Fencing at the under-14 level,
                             and my artwork was featured in international exhibitions in Melbourne and Japan when I was only 12 years old.
                             In my downtime, you'll find me immersed in fiction, crafting poems, or exploring world cinema.
@@ -268,19 +289,23 @@ const Home = () => {
                         <SiHtml5 size={40} color="#fff" />
                         <SiCss3 size={40} color="#fff" />
                         <SiJavascript size={40} color="#fff" />
+                        <SiTypescript size={40} color="#fff" />
                         <SiReact size={40} color="#fff" />
                         <SiNextdotjs size={40} color="#fff" />
-                        <SiMongodb size={40} color="#fff" />
+                        <SiCplusplus size={40} color="#fff" />
+                        <SiC size={40} color="#fff" />
                         <SiPython size={40} color="#fff" />
+                        <SiMongodb size={40} color="#fff" />
                         <SiPostgresql size={40} color="#fff" />
                         <SiAmazonaws size={40} color="#fff" />
                         <SiMysql size={40} color="#fff" />
                         <SiSpringboot size={40} color="#fff" />
-                        <SiCplusplus size={40} color="#fff" />
-                        <SiC size={40} color="#fff" />
-                        <SiTypescript size={40} color="#fff" />
-                        <SiGooglecloud size={40} color="#fff" />
+                        <SiGit size={40} color="#fff" />
+                        <SiDocker size={40} color="#fff" />
+                        <SiKubernetes size={40} color="#fff" />
                         <SiTerraform size={40} color="#fff" />
+                        <SiJenkins size={40} color="#fff" />
+                        <SiPostman size={40} color="#fff" />
                     </AboutRight>
                 </AboutSection>
 
