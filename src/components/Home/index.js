@@ -26,7 +26,7 @@ import {
 } from 'react-icons/si';
 import { FaHandshake, FaLinkedin, FaEnvelope, FaTwitter } from 'react-icons/fa';
 
-// ------------------ Animations ------------------ //
+
 const rotateIn = keyframes`
   from {
     transform: rotate(-200deg);
@@ -127,7 +127,6 @@ const StyledButton = styled(Button)(({ theme }) => ({
     },
 }));
 
-// ------------------ ABOUT SECTION ------------------ //
 const AboutSection = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'row',
@@ -166,7 +165,6 @@ const AboutRight = styled(Box)(({ theme }) => ({
     },
 }));
 
-// ------------------ Single Page Component ------------------ //
 const Home = () => {
     return (
         <>
@@ -184,7 +182,7 @@ const Home = () => {
                             }}
                         >
                             Hi, <br />
-                            I'm <AnimatedImage src={LogoP} alt="developer" /> rathamesh Akole,
+                            I'm <AnimatedImage src={LogoP} alt="developer" />rathamesh Akole,
                             <br />
                             Software Engineer.
                         </Typography>
@@ -199,7 +197,7 @@ const Home = () => {
                                 letterSpacing: '3px',
                             }}
                         >
-                            Full-Stack / Cloud / Data Science / Machine Learning
+                            Java / Backend / Full-Stack / DevOps / Machine Learning
                         </Typography>
                         <Box sx={{ marginTop: '25px' }}>
                             <StyledButton component={Link} to="/contact">
@@ -233,7 +231,6 @@ const Home = () => {
                     </HomeRight>
                 </HomeSection>
 
-                {/* ABOUT SECTION */}
                 <AboutSection>
                     <AboutLeft>
                         <Typography
@@ -287,7 +284,6 @@ const Home = () => {
                     </AboutRight>
                 </AboutSection>
 
-                {/* Loader and Footer */}
             </MainContainer>
             <Loader type="pacman" />
             <Footer />
