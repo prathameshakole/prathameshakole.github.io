@@ -31,7 +31,7 @@ const Contact = () => {
                         Contact Me
                     </h1>
                     <p>
-                        I am looking for internships/Full-time Job opportunities.
+                        I am looking for Full-time Job opportunities this summer (starting May 2025).
                         <br /> However, if you have any other requests or
                         questions, don't hesitate to contact me on LinkedIn or using the form below.
                     </p>
