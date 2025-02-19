@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import {useLocation} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Box, Typography, Button } from '@mui/material';
 import { styled, keyframes, width } from '@mui/system';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,8 @@ import Loader from 'react-loaders';
 import Footer from '../../components/Footer';
 import Logo from './Logo';
 import LogoP from '../../assets/images/logo-p.png';
+import { Document, Page, pdfjs } from 'react-pdf';
+import resumePDF from '../../assets/resume/feb_25.pdf';
 import {
     SiHtml5,
     SiCss3,
@@ -30,6 +32,8 @@ import {
     SiPostman,
 } from 'react-icons/si';
 import { FaHandshake, FaLinkedin, FaEnvelope, FaTwitter } from 'react-icons/fa';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 
 const rotateIn = keyframes`
@@ -175,13 +179,50 @@ const AboutRight = styled(Box)(({ theme }) => ({
     },
 }));
 
+const ResumeSection = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    minHeight: '100vh',
+    [theme.breakpoints.down('md')]: {
+        flexDirection: 'column',
+        padding: '10%',
+    },
+}));
+
+const ResumeLeft = styled(Box)(({ theme }) => ({
+    width: '20%',
+    animation: `${fadeIn} 1s ease-in-out both`,
+    [theme.breakpoints.down('md')]: {
+        width: '100%',
+        textAlign: 'center',
+
+    },
+}));
+
+const ResumeRight = styled(Box)(({ theme }) => ({
+    alignContent: 'center',
+    paddingLeft: '5%',
+    animation: `${fadeIn} 1s ease-in-out both`,
+    [theme.breakpoints.down('md')]: {
+        paddingTop: '0',
+        width: '100%',
+        alignItems: 'center',
+    },
+}));
+
 const Home = () => {
     const location = useLocation();
+    const [numPages, setNumPages] = useState(null);
 
     useEffect(() => {
         if (location.hash === "#about") {
             document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-        } else {
+        } else if (location.hash === "#resume") {
+            document.getElementById("resume")?.scrollIntoView({ behavior: "smooth" });
+        }
+        else {
             document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
         }
     }, [location]);
@@ -253,15 +294,7 @@ const Home = () => {
 
                 <AboutSection id="about">
                     <AboutLeft>
-                        <Typography
-                            variant="h1"
-                            sx={{
-                                color: '#ffd700',
-                                fontFamily: 'Coolvetica',
-                                fontWeight: 400,
-                                mb: 2,
-                            }}
-                        >
+                        <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 2, }}>
                             About Me
                         </Typography>
 
@@ -308,6 +341,27 @@ const Home = () => {
                         <SiPostman size={40} color="#fff" />
                     </AboutRight>
                 </AboutSection>
+
+                <ResumeSection id="resume">
+                    <ResumeLeft>
+                        <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 2 }}>
+                            Resume
+                        </Typography>
+                        <StyledButton variant="contained" sx={{ backgroundColor: '#ffd700', color: '#111', mb: 3 }} href={resumePDF} download>
+                            Download Resume
+                        </StyledButton>
+                    </ResumeLeft>
+                    <ResumeRight>
+                        <Box sx={{ maxWidth: '800px', overflow: 'auto', border: '1px solid #fff', padding: '10px', maxHeight: '95vh' }}>
+                            <Document file={resumePDF} onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
+                                {Array.from(new Array(numPages), (el, index) => (
+                                    <Page pageNumber={index + 1} renderTextLayer={false} renderAnnotationLayer={false}/>
+
+                                ))}
+                            </Document>
+                        </Box>
+                    </ResumeRight>
+                </ResumeSection>
 
             </MainContainer>
             <Loader type="pacman" />

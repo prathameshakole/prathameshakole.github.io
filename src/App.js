@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { Route, Routes , useLocation} from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './components/Home';
-import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Project from './components/Project';
 import Life from './components/Life';
@@ -43,6 +42,11 @@ function App() {
       const hash = '#about';
       navigate(`/${hash}`, { replace: true });
     }
+    else if (location.pathname === '/resume') {
+     
+      const hash = '#resume';
+      navigate(`/${hash}`, { replace: true });
+    }
   }, [location, navigate]);
 
   return (
@@ -50,8 +54,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='/' element={<Home />} />
-          <Route path='resume' element={<Resume />} />
           <Route path='contact' element={<Contact />} />
           <Route path='projects' element={<Project />} />
           <Route path='life' element={<Life />} />
