@@ -1,7 +1,7 @@
 import './App.scss';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Route, Routes , useLocation} from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import Contact from './components/Contact';
@@ -22,7 +22,7 @@ function App() {
 
       if (keys.join('') === secretCode) {
         console.log('Secret code detected!');
-        localStorage.setItem('lifeAuthorized', 'true'); 
+        localStorage.setItem('lifeAuthorized', 'true');
         navigate('/life');
         console.log('Navigating to /life');
       }
@@ -38,13 +38,13 @@ function App() {
 
   useEffect(() => {
     if (location.pathname === '/about') {
-     
       const hash = '#about';
       navigate(`/${hash}`, { replace: true });
-    }
-    else if (location.pathname === '/resume') {
-     
+    } else if (location.pathname === '/resume') {
       const hash = '#resume';
+      navigate(`/${hash}`, { replace: true });
+    } else if (location.pathname === '/projects') {
+      const hash = '#projects';
       navigate(`/${hash}`, { replace: true });
     }
   }, [location, navigate]);
@@ -55,7 +55,6 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='contact' element={<Contact />} />
-          <Route path='projects' element={<Project />} />
           <Route path='life' element={<Life />} />
         </Route>
       </Routes>
