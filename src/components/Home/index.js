@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, Grid } from '@mui/material';
 import { styled, keyframes, width } from '@mui/system';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loaders';
 import Footer from '../../components/Footer';
 import Logo from './Logo';
 import LogoP from '../../assets/images/logo-p.png';
+import celtics from '../../assets/images/celtics3.png';
+import pinpoint from '../../assets/images/ss1-pinpoint.png';
 import { Document, Page, pdfjs } from 'react-pdf';
 import resumePDF from '../../assets/resume/feb_25.pdf';
+import { Card, CardMedia, CardContent, CardActions } from '@mui/material';
 import {
     SiHtml5,
     SiCss3,
@@ -183,11 +186,9 @@ const ResumeSection = styled(Box)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center',
     minHeight: '100vh',
     [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
-        padding: '10%',
     },
 }));
 
@@ -212,6 +213,19 @@ const ResumeRight = styled(Box)(({ theme }) => ({
     },
 }));
 
+const ProjectsSection = styled(Box)(({ theme }) => ({
+    backgroundColor: '#222',
+    paddingLeft: '8%',
+    paddingRight: '8%',
+    paddingBottom: '8%',
+    paddingTop: '2%',
+    boxSizing: 'border-box',
+    minHeight: '100vh',
+    [theme.breakpoints.down('md')]: {
+        padding: '10%',
+    },
+}));
+
 const Home = () => {
     const location = useLocation();
     const [numPages, setNumPages] = useState(null);
@@ -221,11 +235,56 @@ const Home = () => {
             document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
         } else if (location.hash === "#resume") {
             document.getElementById("resume")?.scrollIntoView({ behavior: "smooth" });
-        }
-        else {
+        } else if (location.hash === '#projects') {
+            document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+        } else {
             document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
         }
     }, [location]);
+
+    const projects = [
+        {
+            title: 'Celtics Game Tracker',
+            description:
+                'A chrome extension that tracks the scores, games and ranking of the Boston Celtics, providing real-time updates and a user-friendly interface for game enthusiasts.',
+            imageUrl: celtics,    
+            link: 'https://github.com/prathameshakole/celtics',
+        },
+        {
+            title: 'PinPoint - A GeoGuesser Social Media',
+            description:
+                'Developed using the MERN stack, Pinpoint combines visual puzzles with location-based challenges. Users can upload geo-tagged photos and create quizzes for others.',
+            imageUrl: pinpoint,
+            link: 'https://pinpoint.prathameshakole.com',
+        },
+        {
+            title: 'Kanbas Learning Management Software',
+            description:
+                'A comprehensive LMS inspired by Canvas. It offers robust authentication, secure data protection, and interactive features for an engaging online classroom experience.',
+            imageUrl: LogoP,
+            link: 'https://kanbas.prathameshakole.com',
+        },
+        {
+            title: 'Image Processing Software',
+            description:
+                'A Java-based image processing application with a user-friendly Swing interface. It offers various filters, image compression, and a preview option for efficient editing.',
+            imageUrl: LogoP,
+        },
+        {
+            title: 'Real-Time Mask Detection System',
+            description:
+                'An automated face mask detection system using deep learning to monitor public safety compliance in real time, reducing manual monitoring requirements.',
+            imageUrl: LogoP,
+            link: 'https://www.taylorfrancis.com/chapters/edit/10.1201/9781003342755-6/real-time-cnn-based-face-mask-detection-system-suvarna-pawar-mrudul-jain-prathamesh-akole-suyog-mahagaonkar-rupesh-kapse',
+        },
+        {
+            title: 'Real Time CCTV Violence Detection System',
+            description:
+                'An automated violence detection system leveraging CNNs and LSTMs for real-time analysis of video feeds, enhancing public safety and rapid incident response.',
+            imageUrl: LogoP,
+            link: 'https://ieeexplore.ieee.org/document/10099886',
+        },
+    ];
 
     return (
         <>
@@ -243,9 +302,7 @@ const Home = () => {
                             }}
                         >
                             Hi, <br />
-                            I'm <AnimatedImage src={LogoP} alt="developer" />rathamesh Akole,
-                            <br />
-                            Software Engineer.
+                            I'm<AnimatedImage src={LogoP} alt="developer"/>rathamesh Akole.
                         </Typography>
                         <Typography
                             variant="h2"
@@ -352,16 +409,63 @@ const Home = () => {
                         </StyledButton>
                     </ResumeLeft>
                     <ResumeRight>
-                        <Box sx={{ maxWidth: '800px', overflow: 'auto', border: '1px solid #fff', padding: '10px', maxHeight: '95vh' }}>
+                        <Box sx={{ maxWidth: '900px', overflow: 'auto', border: '1px solid #fff', padding: '10px', maxHeight: '100vh', scale: '0.8' }}>
                             <Document file={resumePDF} onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
                                 {Array.from(new Array(numPages), (el, index) => (
-                                    <Page pageNumber={index + 1} renderTextLayer={false} renderAnnotationLayer={false}/>
+                                    <Page pageNumber={index + 1} renderTextLayer={false} renderAnnotationLayer={false} />
 
                                 ))}
                             </Document>
                         </Box>
                     </ResumeRight>
                 </ResumeSection>
+
+                <ProjectsSection id="projects">
+                    <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 4 }}>
+                        Projects
+                    </Typography>
+                    <Grid container spacing={4}>
+                        {projects.map((project, index) => (
+                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Card
+                                    sx={{
+                                        border: '2px solid #ffd700',
+                                        backgroundColor: '#333',
+                                        color: '#fff',
+                                        height: '100%',
+                                        display: 'flex',
+                                        flexDirection: 'column'
+                                    }}
+                                >
+                                    {project.imageUrl && (
+                                        <CardMedia
+                                            component="img"
+                                            height="425"
+                                            image={project.imageUrl}
+                                            alt={project.title}
+                                        />
+                                    )}
+                                    <CardContent sx={{ flexGrow: 1 }}>
+                                        <Typography gutterBottom variant="h4" component="div" sx={{ color: '#ffd700', fontFamily: 'Coolvetica' }}>
+                                            {project.title}
+                                        </Typography>
+                                        <Typography variant="body1" color="white" fontFamily={'Coolvetica'}>
+                                            {project.description}
+                                        </Typography>
+                                    </CardContent>
+                                    {project.link && (
+                                        <CardActions paddingTop="0px">
+                                            <StyledButton href={project.link} target="_blank">
+                                                Learn More
+                                            </StyledButton>
+                                        </CardActions>
+                                    )}
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </ProjectsSection>
+
 
             </MainContainer>
             <Loader type="pacman" />
