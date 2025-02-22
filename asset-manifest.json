@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.7e61a69d.css",
-    "main.js": "/static/js/main.fa4b795a.js",
+    "main.css": "/static/css/main.197c7f76.css",
+    "main.js": "/static/js/main.7df51b27.js",
     "static/js/453.c9c35973.chunk.js": "/static/js/453.c9c35973.chunk.js",
     "static/media/fencingvideo2.mp4": "/static/media/fencingvideo2.55f124757e9bb0db1170.mp4",
     "static/media/bg1.jpg": "/static/media/bg1.d2f83d8455781de4d80f.jpg",
     "static/media/feb_25.pdf": "/static/media/feb_25.97ed71799289d88a50fe.pdf",
     "static/media/logo-p.png": "/static/media/logo-p.a999174d0dd89548d3ec.png",
     "static/media/logo-sub.png": "/static/media/logo-sub.8de55d3dbf0ea06498c9.png",
+    "static/media/ss1-pinpoint.png": "/static/media/ss1-pinpoint.4490e33fbc12ad70a189.png",
+    "static/media/celtics3.png": "/static/media/celtics3.a67429d7a83b1a946643.png",
     "static/media/helvetica-neu.ttf": "/static/media/helvetica-neu.8a19678078a6b21c8057.ttf",
     "static/media/LaBelleAurore.woff2": "/static/media/LaBelleAurore.a83c1c58fd7e43972e4a.woff2",
     "static/media/CoolveticaRg-Regular.woff2": "/static/media/CoolveticaRg-Regular.7d1f3b1dd46ad6557a17.woff2",
     "index.html": "/index.html",
-    "main.7e61a69d.css.map": "/static/css/main.7e61a69d.css.map",
-    "main.fa4b795a.js.map": "/static/js/main.fa4b795a.js.map",
+    "main.197c7f76.css.map": "/static/css/main.197c7f76.css.map",
+    "main.7df51b27.js.map": "/static/js/main.7df51b27.js.map",
     "453.c9c35973.chunk.js.map": "/static/js/453.c9c35973.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7e61a69d.css",
-    "static/js/main.fa4b795a.js"
+    "static/css/main.197c7f76.css",
+    "static/js/main.7df51b27.js"
   ]
 }
