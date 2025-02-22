@@ -2,7 +2,6 @@
 import Loader from 'react-loaders'
 import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
-import './index.scss'
 
 
 const Contact = () => {
@@ -82,3 +81,5 @@ const Contact = () => {
 }
 
 export default Contact;
+
+

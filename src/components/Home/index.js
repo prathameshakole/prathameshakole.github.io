@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Box, Typography, Button, Grid } from '@mui/material';
+import { Box, Typography, Button, Grid, TextField } from '@mui/material';
 import { styled, keyframes, width } from '@mui/system';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loaders';
@@ -55,7 +55,6 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
-
 const MainContainer = styled(Box)({
     height: '100vh',
     overflowY: 'scroll',
@@ -71,7 +70,6 @@ const MainContainer = styled(Box)({
         borderRadius: '10px',
     },
 });
-
 
 const HomeSection = styled(Box)(({ theme }) => ({
     display: 'flex',
@@ -226,6 +224,39 @@ const ProjectsSection = styled(Box)(({ theme }) => ({
     },
 }));
 
+const ContactSection = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    backgroundColor: '#111',
+    padding: '5%',
+    textAlign: 'center',
+    justifyContent: 'center',
+    minHeight: '100vh',
+    [theme.breakpoints.down('md')]: {
+        flexDirection: 'column',
+        padding: '10%',
+    },
+}));
+
+const ContactLeft = styled(Box)(({ theme }) => ({
+    width: '50%',
+    alignContent: 'center',
+    animation: `${fadeIn} 1s ease-in-out both`,
+    [theme.breakpoints.down('md')]: {
+        width: '100%',
+        textAlign: 'center',
+
+    },
+}));
+
+const ContactRight = styled(Box)(({ theme }) => ({
+    alignContent: 'center',
+    [theme.breakpoints.down('md')]: {
+        paddingTop: '0',
+        width: '100%',
+        alignItems: 'center',
+    },
+}));
+
 const Home = () => {
     const location = useLocation();
     const [numPages, setNumPages] = useState(null);
@@ -237,6 +268,8 @@ const Home = () => {
             document.getElementById("resume")?.scrollIntoView({ behavior: "smooth" });
         } else if (location.hash === '#projects') {
             document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+        } else if (location.hash === "#contact") {
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
         } else {
             document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
         }
@@ -247,7 +280,7 @@ const Home = () => {
             title: 'Celtics Game Tracker',
             description:
                 'A chrome extension that tracks the scores, games and ranking of the Boston Celtics, providing real-time updates and a user-friendly interface for game enthusiasts.',
-            imageUrl: celtics,    
+            imageUrl: celtics,
             link: 'https://github.com/prathameshakole/celtics',
         },
         {
@@ -286,6 +319,7 @@ const Home = () => {
         },
     ];
 
+
     return (
         <>
             <MainContainer>
@@ -302,7 +336,7 @@ const Home = () => {
                             }}
                         >
                             Hi, <br />
-                            I'm<AnimatedImage src={LogoP} alt="developer"/>rathamesh Akole.
+                            I'm<AnimatedImage src={LogoP} alt="developer" />rathamesh Akole.
                         </Typography>
                         <Typography
                             variant="h2"
@@ -454,10 +488,10 @@ const Home = () => {
                                         </Typography>
                                     </CardContent>
                                     {project.link && (
-                                        <CardActions paddingTop="0px">
-                                            <StyledButton href={project.link} target="_blank">
+                                        <CardActions>
+                                            <Button size="xl" sx={{ color: '#ffd700' }} href={project.link} target="_blank">
                                                 Learn More
-                                            </StyledButton>
+                                            </Button>
                                         </CardActions>
                                     )}
                                 </Card>
@@ -466,6 +500,36 @@ const Home = () => {
                     </Grid>
                 </ProjectsSection>
 
+                <ContactSection id="contact">
+                    <ContactLeft>
+                        <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 2 }}>Contact Me</Typography>
+                    </ContactLeft>
+                    <ContactRight>
+                            <TextField
+                                halfWidth
+                                label="Name"
+                                variant="filled"
+                                sx={{ mb: 2, backgroundColor: '#fff' }}
+                            />
+                            <TextField
+                                fullWidth
+                                label="Email"
+                                variant="filled"
+                                sx={{ mb: 2, backgroundColor: '#fff' }}
+                            />
+                            <TextField
+                                fullWidth
+                                label="Message"
+                                variant="filled"
+                                multiline
+                                rows={4}
+                                sx={{ mb: 2, backgroundColor: '#fff' }}
+                            />
+                            <StyledButton variant="contained" type="submit" sx={{ backgroundColor: '#ffd700', color: '#333' }}>
+                                Send Message
+                            </StyledButton>
+                    </ContactRight>
+                </ContactSection>
 
             </MainContainer>
             <Loader type="pacman" />
