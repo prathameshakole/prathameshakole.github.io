@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import './index.scss';
 import LogoP from '../../assets/images/logo-p.png';
 import LogoSubTitle from '../../assets/images/logo-sub.png';
@@ -11,6 +11,7 @@ import React, { useState, useEffect } from 'react';
 const Sidebar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 770);
+    const location = useLocation();
 
     useEffect(() => {
         const handleResize = () => {
@@ -36,69 +37,59 @@ const Sidebar = () => {
                     <img className='sub-logo' src={LogoSubTitle} alt='logosub' />
                 </Link>
                 <nav>
-                    <NavLink exact="true" activeclassname="active" to="/">
+                    <NavLink exact="true" to="/" className={location.pathname === '/' ? 'active' : ''}>
                         <FontAwesomeIcon icon={faHome} color='#4d4d4e' />
                     </NavLink>
-                    <NavLink exact="true" activeclassname="active" className="about-link" to="/about">
+                    <NavLink exact="true" to="/about" className={`about-link ${location.pathname === '/about' ? 'active' : ''}`}>
                         <FontAwesomeIcon icon={faUser} color='#4d4d4e' />
                     </NavLink>
-                    <NavLink exact="true" activeclassname="active" className="resume-link" to="/resume">
-                        <FontAwesomeIcon icon={faNewspaper} color='#4d4d4e' />
-                    </NavLink>
-                    <NavLink exact="true" activeclassname="active" className="project-link" to="/projects">
+                    <NavLink exact="true" to="/projects" className={`project-link ${location.pathname === '/projects' ? 'active' : ''}`}>
                         <FontAwesomeIcon icon={faDiagramProject} color='#4d4d4e' />
-                    </NavLink>
-                    <NavLink exact="true" activeclassname="active" className="contact-link" to="/contact">
-                        <FontAwesomeIcon icon={faEnvelope} color='#4d4d4e' />
                     </NavLink>
                 </nav>
                 <ul>
                     <li>
                         <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/prathamesh-akole/'>
-                            <FontAwesomeIcon icon={faLinkedin} color='#4d4d4e'/>
+                            <FontAwesomeIcon icon={faLinkedin} color='#4d4d4e' />
                         </a>
                     </li>
                     <li>
                         <a target='_blank' rel='noreferrer' href='https://leetcode.com/u/akole/'>
-                            <FontAwesomeIcon icon={faCode} color='#4d4d4e'/>
+                            <FontAwesomeIcon icon={faCode} color='#4d4d4e' />
                         </a>
                     </li>
                     <li>
                         <a target='_blank' rel='noreferrer' href='https://twitter.com/AkolePrathamesh'>
-                            <FontAwesomeIcon icon={faTwitter} color='#4d4d4e'/>
+                            <FontAwesomeIcon icon={faTwitter} color='#4d4d4e' />
                         </a>
                     </li>
                 </ul>
             </div>
 
             {isMobile && (
-                <FontAwesomeIcon 
-                    icon={sidebarOpen ? faTimes : faBars} 
-                    className={`hamburger-icon ${sidebarOpen ? 'open' : ''}`} 
-                    onClick={handleToggleSidebar} 
+                <FontAwesomeIcon
+                    icon={sidebarOpen ? faTimes : faBars}
+                    className={`hamburger-icon ${sidebarOpen ? 'open' : ''}`}
+                    onClick={handleToggleSidebar}
                 />
             )}
 
             {sidebarOpen && (
                 <div className={`temporary-sidebar ${sidebarOpen ? 'open' : ''}`}>
                     <nav>
-                        <NavLink exact="true" activeclassname="active" to="/" onClick={handleToggleSidebar}>
+                        <NavLink exact="true" to="/" className={location.pathname === '/' ? 'active' : ''} onClick={handleToggleSidebar}>
                             <FontAwesomeIcon icon={faHome} color='#4d4d4e' />
                             <span>Home</span>
                         </NavLink>
-                        <NavLink exact="true" activeclassname="active" className="about-link" to="/about" onClick={handleToggleSidebar}>
+                        <NavLink exact="true" to="/about" className={`about-link ${location.pathname === '/about' ? 'active' : ''}`} onClick={handleToggleSidebar}>
                             <FontAwesomeIcon icon={faUser} color='#4d4d4e' />
                             <span>About</span>
                         </NavLink>
-                        <NavLink exact="true" activeclassname="active" className="resume-link" to="/resume" onClick={handleToggleSidebar}>
-                            <FontAwesomeIcon icon={faNewspaper} color='#4d4d4e' />
-                            <span>Resume</span>
-                        </NavLink>
-                        <NavLink exact="true" activeclassname="active" className="project-link" to="/projects" onClick={handleToggleSidebar}>
+                        <NavLink exact="true" to="/projects" className={`project-link ${location.pathname === '/projects' ? 'active' : ''}`} onClick={handleToggleSidebar}>
                             <FontAwesomeIcon icon={faDiagramProject} color='#4d4d4e' />
                             <span>Projects</span>
                         </NavLink>
-                        <NavLink exact="true" activeclassname="active" className="contact-link" to="/contact" onClick={handleToggleSidebar}>
+                        <NavLink exact="true" to="/contact" className={`contact-link ${location.pathname === '/contact' ? 'active' : ''}`} onClick={handleToggleSidebar}>
                             <FontAwesomeIcon icon={faEnvelope} color='#4d4d4e' />
                             <span>Contact</span>
                         </NavLink>

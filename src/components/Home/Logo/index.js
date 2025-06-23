@@ -1,5 +1,5 @@
 import './index.scss';
-import image1 from '../../../assets/images/bg1.jpg'
+import image1 from '../../../assets/images/latest_p.png'
 import anime from 'animejs/lib/anime.es.js';
 import { useEffect, useRef } from 'react';
 

@@ -34,7 +34,7 @@ import {
     SiJenkins,
     SiPostman,
 } from 'react-icons/si';
-import { FaHandshake, FaLinkedin, FaEnvelope, FaTwitter } from 'react-icons/fa';
+import { FaHandshake, FaLinkedin, FaEnvelope, FaTwitter, FaJava, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -54,6 +54,74 @@ const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }
 `;
+
+const slideIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+const contentAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const TimelineWrapper = styled(Box)({
+    position: 'relative',
+    padding: '2rem 0',
+});
+
+const TimelineItem = styled(Box)({
+    display: 'flex',
+    position: 'relative',
+    animation: `${slideIn} 0.6s ease-out forwards`,
+    opacity: 0,
+    '&:not(:last-child)': {
+      marginBottom: '50px',
+    },
+});
+
+const TimelineSeparator = styled(Box)({
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    flexShrink: 0,
+    margin: '0 20px'
+});
+
+const TimelineDot = styled(Box)({
+    height: '20px',
+    width: '20px',
+    backgroundColor: '#ffd700',
+    borderRadius: '50%',
+    zIndex: 1,
+    boxShadow: '0 0 10px #ffd700, 0 0 20px #ffd700',
+});
+
+const TimelineConnector = styled(Box)({
+    width: '4px',
+    backgroundColor: 'rgba(255, 215, 0, 0.3)',
+    flexGrow: 1,
+});
+
+const TimelineContent = styled(Box)({
+    backgroundColor: '#1c1c1c',
+    padding: '20px',
+    borderRadius: '8px',
+    border: '1px solid rgba(255, 215, 0, 0.2)',
+    width: '100%',
+});
 
 const MainContainer = styled(Box)({
     height: '100vh',
@@ -103,20 +171,9 @@ const HomeRight = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down('md')]: {
         width: '100%',
         height: '50vh',
-        marginTop: '20px',
     },
 }));
 
-const AnimatedImage = styled('img')({
-    marginLeft: '20px',
-    marginRight: '-5px',
-    marginBottom: '-5px',
-    opacity: 0,
-    width: '50px',
-    height: '55px',
-    animation: `${rotateIn} 1s linear both`,
-    animationDelay: '1.4s',
-});
 
 const StyledButton = styled(Button)(({ theme }) => ({
     color: '#ffd700',
@@ -139,18 +196,33 @@ const StyledButton = styled(Button)(({ theme }) => ({
 
 const AboutSection = styled(Box)(({ theme }) => ({
     display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    padding: '8%',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '5% 10%',
     boxSizing: 'border-box',
     backgroundColor: '#111',
     minHeight: '100vh',
     [theme.breakpoints.down('md')]: {
-        flexDirection: 'column',
         padding: '10%',
     },
 }));
+
+const SkillCategory = ({ title, icons }) => (
+    <Box sx={{ mb: 4 }}>
+        <Typography variant="h5" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', mb: 2, borderBottom: '1px solid rgba(255, 215, 0, 0.5)', paddingBottom: '10px' }}>
+            {title}
+        </Typography>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '20px', alignItems: 'center', justifyContent: 'flex-start' }}>
+            {icons.map((icon, index) => (
+                <Box key={index} sx={{ textAlign: 'center' }}>
+                    {icon.icon}
+                    <Typography variant="caption" sx={{ color: '#fff', display: 'block', mt: 0.5 }}>{icon.name}</Typography>
+                </Box>
+            ))}
+        </Box>
+    </Box>
+);
 
 const AboutLeft = styled(Box)(({ theme }) => ({
     width: '100%',
@@ -180,37 +252,6 @@ const AboutRight = styled(Box)(({ theme }) => ({
     },
 }));
 
-const ResumeSection = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: '100vh',
-    [theme.breakpoints.down('md')]: {
-        flexDirection: 'column',
-    },
-}));
-
-const ResumeLeft = styled(Box)(({ theme }) => ({
-    width: '20%',
-    animation: `${fadeIn} 1s ease-in-out both`,
-    [theme.breakpoints.down('md')]: {
-        width: '100%',
-        textAlign: 'center',
-
-    },
-}));
-
-const ResumeRight = styled(Box)(({ theme }) => ({
-    alignContent: 'center',
-    paddingLeft: '5%',
-    animation: `${fadeIn} 1s ease-in-out both`,
-    [theme.breakpoints.down('md')]: {
-        paddingTop: '0',
-        width: '100%',
-        alignItems: 'center',
-    },
-}));
-
 const ProjectsSection = styled(Box)(({ theme }) => ({
     backgroundColor: '#222',
     paddingLeft: '8%',
@@ -224,38 +265,92 @@ const ProjectsSection = styled(Box)(({ theme }) => ({
     },
 }));
 
-const ContactSection = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    backgroundColor: '#111',
-    padding: '5%',
-    textAlign: 'center',
-    justifyContent: 'center',
-    minHeight: '100vh',
-    [theme.breakpoints.down('md')]: {
-        flexDirection: 'column',
-        padding: '10%',
-    },
-}));
+// Typing effect component
+const TypingEffect = ({ text, speed = 100, pause = 1500 }) => {
+    const [displayed, setDisplayed] = useState('');
+    const [index, setIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
 
-const ContactLeft = styled(Box)(({ theme }) => ({
-    width: '50%',
-    alignContent: 'center',
-    animation: `${fadeIn} 1s ease-in-out both`,
-    [theme.breakpoints.down('md')]: {
-        width: '100%',
-        textAlign: 'center',
+    useEffect(() => {
+        let timeout;
+        if (!isDeleting && index < text.length) {
+            timeout = setTimeout(() => {
+                setDisplayed(text.slice(0, index + 1));
+                setIndex(index + 1);
+            }, speed);
+        } else if (!isDeleting && index === text.length) {
+            timeout = setTimeout(() => {
+                setIsDeleting(true);
+            }, pause);
+        } else if (isDeleting && index > 0) {
+            timeout = setTimeout(() => {
+                setDisplayed(text.slice(0, index - 1));
+                setIndex(index - 1);
+            }, speed / 2);
+        } else if (isDeleting && index === 0) {
+            setIsDeleting(false);
+        }
+        return () => clearTimeout(timeout);
+    }, [index, isDeleting, text, speed, pause]);
 
-    },
-}));
+    return (
+        <span>{displayed}<span style={{ color: '#ffd700' }}>|</span></span>
+    );
+};
 
-const ContactRight = styled(Box)(({ theme }) => ({
-    alignContent: 'center',
-    [theme.breakpoints.down('md')]: {
-        paddingTop: '0',
-        width: '100%',
-        alignItems: 'center',
+const milestones = [
+    {
+        year: "Early Life",
+        title: "A Glimpse into My Early Years",
+        description: "Beyond coding, I've had a diverse journey. I competed nationally in Fencing and my artwork was featured in international exhibitions. These experiences bring a unique perspective to my problem-solving approach in tech."
     },
-}));
+    {
+        year: "2019-2023",
+        title: "Bachelor's in Information Technology",
+        description: "My journey started in India, where I completed my Bachelor's in Information Technology, building a strong foundation for my technical skills."
+    },
+    {
+        year: "2023",
+        title: "SDE Intern at IDeaS Revenue Solutions",
+        description: "I dived into professional software development as an SDE Intern at IDeaS, working with Java 8, Spring MVC, and JUnit to develop and test web applications for the hospitality industry."
+    },
+    {
+        year: "2022-23",
+        title: "Publications and Projects",
+        description: "Passionate about software development, my work on various projects has led to two publications in computer vision and deep learning, reflecting my interest in cutting-edge technology."
+    },
+    {
+        year: "2023-2025",
+        title: "Master's at Northeastern University",
+        description: "I recently graduated with a Master of Science in Computer Science degree at Northeastern University, I'm exploring new technologies to create impactful software, specializing in Backend, Full-Stack, and DevOps. I also have a strong interest in Machine Learning and AI."
+    }
+];
+
+const Timeline = ({ milestones }) => {
+    return (
+        <TimelineWrapper>
+            {milestones.map((milestone, index) => (
+                <TimelineItem key={index} sx={{ animationDelay: `${index * 0.2}s` }}>
+                    <TimelineSeparator>
+                        <TimelineDot />
+                        {index < milestones.length - 1 && <TimelineConnector />}
+                    </TimelineSeparator>
+                    <TimelineContent>
+                        <Typography variant="h6" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 'bold' }}>
+                            {milestone.year}
+                        </Typography>
+                        <Typography variant="h4" sx={{ color: '#fff', fontFamily: 'Coolvetica', my: 1 }}>
+                            {milestone.title}
+                        </Typography>
+                        <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.8)', fontFamily: 'sans-serif', lineHeight: 1.7, textAlign: 'justify' }}>
+                            {milestone.description}
+                        </Typography>
+                    </TimelineContent>
+                </TimelineItem>
+            ))}
+        </TimelineWrapper>
+    );
+};
 
 const Home = () => {
     const location = useLocation();
@@ -335,8 +430,7 @@ const Home = () => {
                                 fontWeight: 400,
                             }}
                         >
-                            Hi, <br />
-                            I'm<AnimatedImage src={LogoP} alt="developer" />rathamesh Akole.
+                            <TypingEffect text={"Hi, I'm Prathamesh Akole."} speed={50} pause={1500} />
                         </Typography>
                         <Typography
                             variant="h2"
@@ -349,7 +443,7 @@ const Home = () => {
                                 letterSpacing: '3px',
                             }}
                         >
-                            Java / Backend / Full-Stack / DevOps / Machine Learning
+                            Software Developer / Backend / Full-Stack / DevOps / Machine Learning
                         </Typography>
                         <Box sx={{ marginTop: '25px' }}>
                             <StyledButton component={Link} to="/contact">
@@ -376,6 +470,9 @@ const Home = () => {
                             >
                                 <FaTwitter size={20} />
                             </StyledButton>
+                            <StyledButton href={resumePDF} download>
+                                Download Resume
+                            </StyledButton>
                         </Box>
                     </HomeLeft>
                     <HomeRight>
@@ -384,75 +481,49 @@ const Home = () => {
                 </HomeSection>
 
                 <AboutSection id="about">
-                    <AboutLeft>
-                        <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 2, }}>
-                            About Me
-                        </Typography>
-
-                        <Typography variant="h4" sx={{ color: '#fff', fontFamily: 'Coolvetica', mb: 2, lineHeight: 1 }}>
-                            Hi, I'm Prathamesh Akole, a Computer Science grad student at Northeastern University.
-                            My journey started in India, where I completed my Bachelor's in Information Technology
-                            before diving into professional software development as an SDE Intern at IDeaS Revenue Solutions,
-                            a leading provider of Revenue Management Solutions for the hospitality industry.
-                            There, I worked with Java 8, Spring MVC, and JUnit to develop and test web applications and APIs for hotel booking and pricing.
-                        </Typography>
-                        <Typography variant="h4" sx={{ color: '#fff', fontFamily: 'Coolvetica', mb: 2, lineHeight: 1 }}>
-                            I'm passionate about software development and have worked on projects ranging from a Learning Management System to an AI-enabled rental platform.
-                            My work has led to two publications in computer vision and deep learning, reflecting my interest in cutting-edge technology.
-                            I specialize in Java, Spring Boot, JavaScript and cloud technologies, always focusing on building solutions that solve real problems.
-                            Currently, I'm exploring new technologies while pursuing my Master's, aiming to create software that makes a meaningful impact.
-                        </Typography>
-                        <Typography variant="h4" sx={{ color: '#fff', fontFamily: 'Coolvetica', mb: 2, lineHeight: 1 }}>
-                            Beyond coding, I've had quite a diverse journey. I competed nationally in Fencing at the under-14 level,
-                            and my artwork was featured in international exhibitions in Melbourne and Japan when I was only 12 years old.
-                            In my downtime, you'll find me immersed in fiction, crafting poems, or exploring world cinema.
-                            I believe these varied interests bring a unique perspective to my problem-solving approach in tech.
-                        </Typography>
-                    </AboutLeft>
-                    <AboutRight>
-                        <SiHtml5 size={40} color="#fff" />
-                        <SiCss3 size={40} color="#fff" />
-                        <SiJavascript size={40} color="#fff" />
-                        <SiTypescript size={40} color="#fff" />
-                        <SiReact size={40} color="#fff" />
-                        <SiNextdotjs size={40} color="#fff" />
-                        <SiCplusplus size={40} color="#fff" />
-                        <SiC size={40} color="#fff" />
-                        <SiPython size={40} color="#fff" />
-                        <SiMongodb size={40} color="#fff" />
-                        <SiPostgresql size={40} color="#fff" />
-                        <SiAmazonaws size={40} color="#fff" />
-                        <SiMysql size={40} color="#fff" />
-                        <SiSpringboot size={40} color="#fff" />
-                        <SiGit size={40} color="#fff" />
-                        <SiDocker size={40} color="#fff" />
-                        <SiKubernetes size={40} color="#fff" />
-                        <SiTerraform size={40} color="#fff" />
-                        <SiJenkins size={40} color="#fff" />
-                        <SiPostman size={40} color="#fff" />
-                    </AboutRight>
+                    <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 5, textAlign: 'center' }}>
+                        About Me
+                    </Typography>
+                    <Grid container spacing={6} alignItems="flex-start">
+                        <Grid item lg={7}>
+                            <Box>
+                                <Timeline milestones={milestones} />
+                            </Box>
+                        </Grid>
+                        <Grid item lg={5}>
+                            <Box>
+                                <SkillCategory title="Languages & Databases" icons={[
+                                    { icon: <FaJava size={40} color="#fff" />, name: 'Java' },
+                                    { icon: <SiPython size={40} color="#fff" />, name: 'Python' },
+                                    { icon: <SiJavascript size={40} color="#fff" />, name: 'JavaScript' },
+                                    { icon: <SiTypescript size={40} color="#fff" />, name: 'TypeScript' },
+                                    { icon: <SiCplusplus size={40} color="#fff" />, name: 'C++' },
+                                    { icon: <SiC size={40} color="#fff" />, name: 'C' },
+                                    { icon: <SiPostgresql size={40} color="#fff" />, name: 'PostgreSQL' },
+                                    { icon: <SiMysql size={40} color="#fff" />, name: 'MySQL' },
+                                    { icon: <SiMongodb size={40} color="#fff" />, name: 'MongoDB' },
+                                ]} />
+                                <SkillCategory title="Frontend" icons={[
+                                    { icon: <SiReact size={40} color="#fff" />, name: 'React' },
+                                    { icon: <SiNextdotjs size={40} color="#fff" />, name: 'Next.js' },
+                                    { icon: <SiHtml5 size={40} color="#fff" />, name: 'HTML5' },
+                                    { icon: <SiCss3 size={40} color="#fff" />, name: 'CSS3' },
+                                ]} />
+                                <SkillCategory title="Backend & DevOps" icons={[
+                                    { icon: <SiSpringboot size={40} color="#fff" />, name: 'Spring Boot' },
+                                    { icon: <SiAmazonaws size={40} color="#fff" />, name: 'AWS' },
+                                    { icon: <SiDocker size={40} color="#fff" />, name: 'Docker' },
+                                    { icon: <SiKubernetes size={40} color="#fff" />, name: 'Kubernetes' },
+                                    { icon: <SiJenkins size={40} color="#fff" />, name: 'Jenkins' },
+                                    { icon: <SiTerraform size={40} color="#fff" />, name: 'Terraform' },
+                                    { icon: <SiGit size={40} color="#fff" />, name: 'Git' },
+                                    { icon: <SiPostman size={40} color="#fff" />, name: 'Postman' },
+                                ]} />
+                            </Box>
+                        </Grid>
+                    </Grid>
                 </AboutSection>
 
-                <ResumeSection id="resume">
-                    <ResumeLeft>
-                        <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 2 }}>
-                            Resume
-                        </Typography>
-                        <StyledButton variant="contained" sx={{ backgroundColor: '#ffd700', color: '#111', mb: 3 }} href={resumePDF} download>
-                            Download Resume
-                        </StyledButton>
-                    </ResumeLeft>
-                    <ResumeRight>
-                        <Box sx={{ maxWidth: '900px', overflow: 'auto', border: '1px solid #fff', padding: '10px', maxHeight: '100vh', scale: '0.8' }}>
-                            <Document file={resumePDF} onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
-                                {Array.from(new Array(numPages), (el, index) => (
-                                    <Page pageNumber={index + 1} renderTextLayer={false} renderAnnotationLayer={false} />
-
-                                ))}
-                            </Document>
-                        </Box>
-                    </ResumeRight>
-                </ResumeSection>
 
                 <ProjectsSection id="projects">
                     <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 4 }}>
@@ -499,38 +570,6 @@ const Home = () => {
                         ))}
                     </Grid>
                 </ProjectsSection>
-
-                <ContactSection id="contact">
-                    <ContactLeft>
-                        <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 2 }}>Contact Me</Typography>
-                    </ContactLeft>
-                    <ContactRight>
-                            <TextField
-                                halfWidth
-                                label="Name"
-                                variant="filled"
-                                sx={{ mb: 2, backgroundColor: '#fff' }}
-                            />
-                            <TextField
-                                fullWidth
-                                label="Email"
-                                variant="filled"
-                                sx={{ mb: 2, backgroundColor: '#fff' }}
-                            />
-                            <TextField
-                                fullWidth
-                                label="Message"
-                                variant="filled"
-                                multiline
-                                rows={4}
-                                sx={{ mb: 2, backgroundColor: '#fff' }}
-                            />
-                            <StyledButton variant="contained" type="submit" sx={{ backgroundColor: '#ffd700', color: '#333' }}>
-                                Send Message
-                            </StyledButton>
-                    </ContactRight>
-                </ContactSection>
-
             </MainContainer>
             <Loader type="pacman" />
             <Footer />
