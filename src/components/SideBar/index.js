@@ -6,12 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faCode, faDiagramProject, faEnvelope, faHome, faNewspaper, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useSection } from '../../SectionContext';
 
 const Sidebar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 770);
     const location = useLocation();
+    const { currentSection } = useSection();
 
     useEffect(() => {
         const handleResize = () => {
@@ -29,6 +31,18 @@ const Sidebar = () => {
         setSidebarOpen(!sidebarOpen);
     };
 
+    const handleSectionClick = useCallback((e, sectionId) => {
+        e.preventDefault();
+        const el = document.getElementById(sectionId);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+            window.history.pushState(null, '', sectionId === 'home' ? '/' : `/#${sectionId}`);
+        } else if (sectionId === 'home') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.history.pushState(null, '', '/');
+        }
+    }, []);
+
     return (
         <>
             <div className={`nav-bar ${isMobile ? 'mobile' : ''}`}>
@@ -37,15 +51,15 @@ const Sidebar = () => {
                     <img className='sub-logo' src={LogoSubTitle} alt='logosub' />
                 </Link>
                 <nav>
-                    <NavLink exact="true" to="/" className={location.pathname === '/' ? 'active' : ''}>
+                    <a href='/' className={location.pathname === '/' && currentSection === 'home' ? 'active' : ''} onClick={e => handleSectionClick(e, 'home')}>
                         <FontAwesomeIcon icon={faHome} color='#4d4d4e' />
-                    </NavLink>
-                    <NavLink exact="true" to="/about" className={`about-link ${location.pathname === '/about' ? 'active' : ''}`}>
+                    </a>
+                    <a href='/#about' className={`about-link ${location.pathname === '/' && currentSection === 'about' ? 'active' : ''}`} onClick={e => handleSectionClick(e, 'about')}>
                         <FontAwesomeIcon icon={faUser} color='#4d4d4e' />
-                    </NavLink>
-                    <NavLink exact="true" to="/projects" className={`project-link ${location.pathname === '/projects' ? 'active' : ''}`}>
+                    </a>
+                    <a href='/#projects' className={`project-link ${location.pathname === '/' && currentSection === 'projects' ? 'active' : ''}`} onClick={e => handleSectionClick(e, 'projects')}>
                         <FontAwesomeIcon icon={faDiagramProject} color='#4d4d4e' />
-                    </NavLink>
+                    </a>
                 </nav>
                 <ul>
                     <li>

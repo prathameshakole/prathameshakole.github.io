@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './components/Home';
-import Contact from './components/Contact';
 import Life from './components/Life';
 
 function App() {
@@ -44,9 +43,6 @@ function App() {
       navigate(`/${hash}`, { replace: true });
     } else if (location.pathname === '/projects') {
       const hash = '#projects';
-      navigate(`/${hash}`, { replace: true });
-    } else if (location.pathname === '/contact') {
-      const hash = '#contact';
       navigate(`/${hash}`, { replace: true });
     }
   }, [location, navigate]);
