@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.197c7f76.css",
-    "main.js": "/static/js/main.965ebd9a.js",
-    "static/js/453.c9c35973.chunk.js": "/static/js/453.c9c35973.chunk.js",
+    "main.css": "/static/css/main.1508306f.css",
+    "main.js": "/static/js/main.101f31f5.js",
+    "static/js/453.bcafc394.chunk.js": "/static/js/453.bcafc394.chunk.js",
     "static/media/fencingvideo2.mp4": "/static/media/fencingvideo2.55f124757e9bb0db1170.mp4",
     "static/media/latest_p.png": "/static/media/latest_p.1e2402c817d0b5d3950c.png",
     "static/media/feb_25.pdf": "/static/media/feb_25.97ed71799289d88a50fe.pdf",
+    "static/media/boston.png": "/static/media/boston.81bedc6347fee5ca4cca.png",
     "static/media/logo-p.png": "/static/media/logo-p.a999174d0dd89548d3ec.png",
     "static/media/logo-sub.png": "/static/media/logo-sub.8de55d3dbf0ea06498c9.png",
     "static/media/ss1-pinpoint.png": "/static/media/ss1-pinpoint.4490e33fbc12ad70a189.png",
@@ -14,12 +15,12 @@
     "static/media/LaBelleAurore.woff2": "/static/media/LaBelleAurore.a83c1c58fd7e43972e4a.woff2",
     "static/media/CoolveticaRg-Regular.woff2": "/static/media/CoolveticaRg-Regular.7d1f3b1dd46ad6557a17.woff2",
     "index.html": "/index.html",
-    "main.197c7f76.css.map": "/static/css/main.197c7f76.css.map",
-    "main.965ebd9a.js.map": "/static/js/main.965ebd9a.js.map",
-    "453.c9c35973.chunk.js.map": "/static/js/453.c9c35973.chunk.js.map"
+    "main.1508306f.css.map": "/static/css/main.1508306f.css.map",
+    "main.101f31f5.js.map": "/static/js/main.101f31f5.js.map",
+    "453.bcafc394.chunk.js.map": "/static/js/453.bcafc394.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.197c7f76.css",
-    "static/js/main.965ebd9a.js"
+    "static/css/main.1508306f.css",
+    "static/js/main.101f31f5.js"
   ]
 }
