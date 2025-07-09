@@ -119,13 +119,18 @@ const Projects = () => {
                                         {project.description}
                                     </Typography>
                                 </CardContent>
-                                {project.link && (
-                                    <CardActions>
-                                        <Button size="xl" sx={{ color: '#ffd700' }} href={project.link} target="_blank" onClick={e => e.stopPropagation()}>
-                                            Learn More
-                                        </Button>
-                                    </CardActions>
-                                )}
+                                <CardActions>
+                                    <Button
+                                        size="xl"
+                                        sx={{ color: project.link ? '#ffd700' : '#aaa', opacity: project.link ? 1 : 0.6 }}
+                                        href={project.link || undefined}
+                                        target={project.link ? '_blank' : undefined}
+                                        onClick={e => { if (!project.link) e.stopPropagation(); }}
+                                        disabled={!project.link}
+                                    >
+                                        Learn More
+                                    </Button>
+                                </CardActions>
                             </StyledCard>
                         </Grid>
                     ))}
