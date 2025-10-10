@@ -3,6 +3,21 @@ import { Typography, Box, Grid, Card, CardMedia, CardContent, CardActions, Butto
 import { styled } from '@mui/system';
 import CloseIcon from '@mui/icons-material/Close';
 import { projects } from '../../data/data';
+import { FaJava } from 'react-icons/fa';
+// Import icons from react-icons/si
+import { 
+    SiReact, 
+    SiNodedotjs, 
+    SiMongodb, 
+    SiJavascript, 
+    SiGooglechrome, 
+    SiExpress, 
+    SiPython, 
+    SiTensorflow, 
+    SiOpencv, 
+    SiKeras, 
+    SiMui
+} from 'react-icons/si';
 
 const ProjectsSection = styled(Box)(({ theme }) => ({
     backgroundColor: '#222',
@@ -54,21 +69,23 @@ const ModalContent = styled(Box)({
     fontFamily: 'Helvetica Neue',
 });
 
-const skillLogos = {
-    react: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg',
-    nodejs: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/node-dot-js.svg',
-    mongodb: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mongodb.svg',
-    mui: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/materialui.svg',
-    javascript: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg',
-    'chrome-extension': 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlechrome.svg',
-    express: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/express.svg',
-    java: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/java.svg',
-    swing: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/java.svg',
-    python: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg',
-    tensorflow: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tensorflow.svg',
-    opencv: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/opencv.svg',
-    'deep-learning': 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/keras.svg',
+// Replace the skillLogos object with icon components
+const skillIcons = {
+    react: SiReact,
+    nodejs: SiNodedotjs,
+    mongodb: SiMongodb,
+    mui: SiMui,
+    javascript: SiJavascript,
+    'chrome-extension': SiGooglechrome,
+    express: SiExpress,
+    java: FaJava,
+    swing: FaJava, // Using Java icon for Swing as well
+    python: SiPython,
+    tensorflow: SiTensorflow,
+    opencv: SiOpencv,
+    'deep-learning': SiKeras,
 };
+
 
 const Projects = () => {
     const [open, setOpen] = useState(false);
@@ -86,7 +103,7 @@ const Projects = () => {
     return (
         <Box id="projects">
             <ProjectsSection>
-                <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 4 }}>
+                <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 4, fontSize: '4.5rem' }}>
                     Projects
                 </Typography>
                 <Grid container spacing={4}>
@@ -112,10 +129,10 @@ const Projects = () => {
                                     />
                                 )}
                                 <CardContent sx={{ flexGrow: 1 }}>
-                                    <Typography gutterBottom variant="h4" component="div" sx={{ color: '#ffd700', fontFamily: 'Coolvetica' }}>
+                                    <Typography gutterBottom variant="h4" component="div" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontSize: '2rem' }}>
                                         {project.title}
                                     </Typography>
-                                    <Typography variant="body1" color="white" fontFamily={'Coolvetica'}>
+                                    <Typography variant="body1" color="white" fontFamily={'Coolvetica'} sx={{ fontSize: '1.4rem' }}>
                                         {project.description}
                                     </Typography>
                                 </CardContent>
@@ -158,24 +175,31 @@ const Projects = () => {
                                     />
                                 </Box>
                             )}
-                            <Typography variant="h4" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', mb: 1 }}>
+                            <Typography variant="h4" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', mb: 1, fontSize: '2.5rem' }}>
                                 {selectedProject.title}
                             </Typography>
-                            <Typography variant="body1" sx={{ fontFamily: 'Helvetica Neue', mb: 2 }}>
+                            <Typography variant="body1" sx={{ fontFamily: 'Helvetica Neue', mb: 2, fontSize: '1.4rem' }}>
                                 {selectedProject.description}
                             </Typography>
                             {selectedProject.skills && selectedProject.skills.length > 0 && (
                                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, alignItems: 'center', mt: 2, mb: 2 }}>
-                                    {selectedProject.skills.map(skill => (
-                                        <Box key={skill} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 48 }}>
-                                            <img
-                                                src={skillLogos[skill] || ''}
-                                                alt={skill}
-                                                style={{ width: 32, height: 32, marginBottom: 4, filter: 'invert(81%) sepia(97%) saturate(749%) hue-rotate(1deg) brightness(104%) contrast(101%)' }}
-                                            />
-                                            <Typography variant="caption" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontSize: 12 }}>{skill}</Typography>
-                                        </Box>
-                                    ))}
+                                    {selectedProject.skills.map(skill => {
+                                        const IconComponent = skillIcons[skill];
+                                        return (
+                                            <Box key={skill} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 48 }}>
+                                                {IconComponent && (
+                                                    <IconComponent 
+                                                        size={32} 
+                                                        color="#ffd700"
+                                                        style={{ marginBottom: 4 }}
+                                                    />
+                                                )}
+                                                <Typography variant="caption" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontSize: '1.1rem' }}>
+                                                    {skill}
+                                                </Typography>
+                                            </Box>
+                                        );
+                                    })}
                                 </Box>
                             )}
                             {selectedProject.link && (

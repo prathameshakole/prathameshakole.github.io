@@ -4,6 +4,7 @@ import Loader from 'react-loaders';
 import Footer from '../../components/Footer';
 import Intro from './sections/Intro/Intro';
 import About from './sections/About/About';
+import Skills from './sections/Skills/Skills';
 import Projects from './sections/Projects/Projects';
 import { Box } from '@mui/material';
 import { useSection } from '../../SectionContext';
@@ -18,6 +19,8 @@ const Home = () => {
     useEffect(() => {
         if (location.hash === "#about") {
             document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+        } else if (location.hash === "#skills") {
+            document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" });
         } else if (location.hash === "#resume") {
             document.getElementById("resume")?.scrollIntoView({ behavior: "smooth" });
         } else if (location.hash === '#projects') {
@@ -34,6 +37,7 @@ const Home = () => {
             const sections = [
                 { id: 'home', offset: 0 },
                 { id: 'about', offset: 0 },
+                { id: 'skills', offset: 0 },
                 { id: 'projects', offset: 0 },
             ];
             let current = 'home';
@@ -57,7 +61,11 @@ const Home = () => {
         <>
             <MainContainer>
                 <Intro />
+
                 <About />
+
+                <Skills />
+
                 <Projects />
             </MainContainer>
             <Loader type="pacman" />
@@ -67,6 +75,9 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
 
 
 

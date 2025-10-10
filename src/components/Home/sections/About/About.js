@@ -1,15 +1,11 @@
 import React from 'react';
 import { Typography, Box, Grid } from '@mui/material';
 import { styled, keyframes } from '@mui/system';
-import Timeline from '../../shared/Timeline';
-import SkillCategory from '../../shared/SkillCategory';
-import { milestones } from '../../data/data';
-import { FaJava } from 'react-icons/fa';
-import {
-    SiPython, SiJavascript, SiCplusplus, SiC, SiPostgresql, SiMysql, SiMongodb,
-    SiSpringboot, SiReact, SiNextdotjs, SiHtml5, SiCss3,
-    SiAmazonwebservices, SiDocker, SiKubernetes, SiJenkins, SiTerraform, SiGit, SiPostman
-} from 'react-icons/si';
+import TimelineCarousel from '../../shared/TimelineCarousel';
+import PublicationCard from '../../shared/PublicationCard';
+import ExperienceCard from '../../shared/ExperienceCard';
+import EducationCard from '../../shared/EducationCard';
+import { milestones, publications } from '../../data/data';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -29,51 +25,143 @@ const AboutSection = styled(Box)(({ theme }) => ({
     },
 }));
 
-const About = () => (
-    <Box id="about">
-        <AboutSection>
-            <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 5, textAlign: 'center' }}>
-                About Me
-            </Typography>
-            <Grid container spacing={6} alignItems="flex-start">
-                <Grid item lg={7}>
-                    <Box>
-                        <Timeline milestones={milestones} />
-                    </Box>
-                </Grid>
-                <Grid item lg={5}>
-                    <Box>
-                        <SkillCategory title="Languages & Databases" icons={[
-                            { icon: <FaJava size={40} color="#fff" />, name: 'Java' },
-                            { icon: <SiPython size={40} color="#fff" />, name: 'Python' },
-                            { icon: <SiJavascript size={40} color="#fff" />, name: 'JavaScript' },
-                            { icon: <SiCplusplus size={40} color="#fff" />, name: 'C++' },
-                            { icon: <SiC size={40} color="#fff" />, name: 'C' },
-                            { icon: <SiPostgresql size={40} color="#fff" />, name: 'PostgreSQL' },
-                            { icon: <SiMysql size={40} color="#fff" />, name: 'MySQL' },
-                            { icon: <SiMongodb size={40} color="#fff" />, name: 'MongoDB' },
-                        ]} />
-                        <SkillCategory title="Frameworks & Libraries" icons={[
-                            { icon: <SiSpringboot size={40} color="#fff" />, name: 'Spring Boot' },
-                            { icon: <SiReact size={40} color="#fff" />, name: 'React' },
-                            { icon: <SiNextdotjs size={40} color="#fff" />, name: 'Next.js' },
-                            { icon: <SiHtml5 size={40} color="#fff" />, name: 'HTML5' },
-                            { icon: <SiCss3 size={40} color="#fff" />, name: 'CSS3' },
-                        ]} />
-                        <SkillCategory title="Other" icons={[
-                            { icon: <SiAmazonwebservices size={40} color="#fff" />, name: 'AWS' },
-                            { icon: <SiDocker size={40} color="#fff" />, name: 'Docker' },
-                            { icon: <SiKubernetes size={40} color="#fff" />, name: 'Kubernetes' },
-                            { icon: <SiJenkins size={40} color="#fff" />, name: 'Jenkins' },
-                            { icon: <SiTerraform size={40} color="#fff" />, name: 'Terraform' },
-                            { icon: <SiGit size={40} color="#fff" />, name: 'Git' },
-                            { icon: <SiPostman size={40} color="#fff" />, name: 'Postman' },
-                        ]} />
-                    </Box>
-                </Grid>
-            </Grid>
-        </AboutSection>
-    </Box>
-);
+const About = () => {
+    const educationMilestones = milestones
+        .filter((m) => m.category === 'Education')
+        .sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
+    const experienceMilestones = milestones
+        .filter((m) => m.category === 'Experience')
+        .sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
+    const volunteerMilestones = milestones.filter((m) => m.category === 'Volunteer');
+
+    return (
+        <Box id="about">
+            <AboutSection>
+                <Typography variant="h1" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', fontWeight: 400, mb: 5, textAlign: 'center', fontSize: '4.5rem' }}>
+                    About Me
+                </Typography>
+                <Box sx={{ maxWidth: '100%', width: '100%' }}>
+                    {educationMilestones.length > 0 && (
+                        <Box sx={{ mb: 5, textAlign: 'center' }}>
+                            <Typography variant="h3" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', mb: 3, fontSize: '3rem' }}>
+                                Education
+                            </Typography>
+                            <Box sx={{ 
+                                display: 'flex', 
+                                flexDirection: 'column',
+                                justifyContent: 'center', 
+                                alignItems: 'center',
+                                gap: '32px',
+                                maxWidth: '800px',
+                                margin: '0 auto',
+                                padding: '0 20px'
+                            }}>
+                                {educationMilestones.map((education, index) => (
+                                    <Box key={index} sx={{ 
+                                        width: '100%',
+                                        maxWidth: '700px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'stretch'
+                                    }}>
+                                        <EducationCard
+                                            year={education.year}
+                                            title={education.title}
+                                            description={education.description}
+                                            institution={education.institution}
+                                            logo={education.logo}
+                                        />
+                                    </Box>
+                                ))}
+                            </Box>
+                        </Box>
+                    )}
+                    {experienceMilestones.length > 0 && (
+                        <Box sx={{ mb: 5, textAlign: 'center' }}>
+                            <Typography variant="h3" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', mb: 3, fontSize: '3rem' }}>
+                                Experience
+                            </Typography>
+                            <Box sx={{ 
+                                display: 'flex', 
+                                flexDirection: 'column',
+                                justifyContent: 'center', 
+                                alignItems: 'center',
+                                gap: '32px',
+                                maxWidth: '800px',
+                                margin: '0 auto',
+                                padding: '0 20px'
+                            }}>
+                                {experienceMilestones.map((experience, index) => (
+                                    <Box key={index} sx={{ 
+                                        width: '100%',
+                                        maxWidth: '700px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'stretch'
+                                    }}>
+                                        <ExperienceCard
+                                            company={experience.company}
+                                            role={experience.role}
+                                            dateRange={experience.dateRange}
+                                            description={experience.description}
+                                            logo={experience.logo}
+                                        />
+                                    </Box>
+                                ))}
+                            </Box>
+                        </Box>
+                    )}
+                    {volunteerMilestones.length > 0 && (
+                        <Box sx={{ mb: 5, textAlign: 'center' }}>
+                            <Typography variant="h3" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', mb: 2, fontSize: '3rem' }}>
+                                Volunteer
+                            </Typography>
+                            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                                <TimelineCarousel milestones={volunteerMilestones} />
+                            </Box>
+                        </Box>
+                    )}
+                    {publications.length > 0 && (
+                        <Box sx={{ mb: 5, textAlign: 'center' }}>
+                            <Typography variant="h3" sx={{ color: '#ffd700', fontFamily: 'Coolvetica', mb: 3, fontSize: '3rem' }}>
+                                Publications
+                            </Typography>
+                            <Box sx={{ 
+                                display: 'flex', 
+                                flexDirection: 'column',
+                                justifyContent: 'center', 
+                                alignItems: 'center',
+                                gap: '32px',
+                                maxWidth: '800px',
+                                margin: '0 auto',
+                                padding: '0 20px'
+                            }}>
+                                {publications.map((publication, index) => (
+                                    <Box key={index} sx={{ 
+                                        width: '100%',
+                                        maxWidth: '700px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'stretch'
+                                    }}>
+                                        <PublicationCard
+                                            title={publication.title}
+                                            authors={publication.authors}
+                                            journal={publication.journal}
+                                            year={publication.year}
+                                            description={publication.description}
+                                            link={publication.link}
+                                            type={publication.type}
+                                        />
+                                    </Box>
+                                ))}
+                            </Box>
+                        </Box>
+                    )}
+                </Box>
+            </AboutSection>
+        </Box>
+    );
+};
 
 export default About; 

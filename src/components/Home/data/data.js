@@ -2,36 +2,95 @@ import boston from '../../../assets/images/boston.png';
 import celtics from '../../../assets/images/celtics3.png';
 import pinpoint from '../../../assets/images/ss1-pinpoint.png';
 import LogoP from '../../../assets/images/logo-p.png';
+import NortheasternLogo from '../../../assets/images/Northeastern_Logo.png';
+import VITLogo from '../../../assets/images/VI_Logo.png';
+import METYLogo from '../../../assets/images/mety_logo.jpg';
+import PowerMechLogo from '../../../assets/images/powermech_logo.png';
+import IntegratedDecisionSystemsLogo from '../../../assets/images/ideas_lo.jpg';
+import PreBuildTechnologiesLogo from '../../../assets/images/prebuild_logo.avif';
+import slap from '../../../assets/images/slap.png';
 
 export const milestones = [
     {
-        year: "Early Life",
-        title: "A Glimpse into My Early Years",
-        description: "Beyond coding, I've had a diverse journey. I competed nationally in Fencing and my artwork was featured in international exhibitions. These experiences bring a unique perspective to my problem-solving approach in tech."
+        year: "2019-2023",
+        title: "Bachelor of Technology in Information Technology",
+        description: "My journey started in India, where I completed my Bachelor's in Information Technology, building a strong foundation for my technical skills.",
+        category: 'Education',
+        institution: "Vishwakarma Institute of Information Technology",
+        logo: VITLogo,
+        startDate: "2019-08-01"
     },
     {
-        year: "2019-2023",
-        title: "Bachelor's in Information Technology",
-        description: "My journey started in India, where I completed my Bachelor's in Information Technology, building a strong foundation for my technical skills."
+        year: "2022",
+        description: "I dived into professional software development as an SDE Intern at IDeaS, working with Java 8, Spring MVC, and JUnit to develop and test web applications for the hospitality industry.",
+        category: 'Experience',
+        company: "PowerMech Engineering",
+        role: "Software Development Engineer Intern",
+        dateRange: "August 2022 - December 2022",
+        logo: PowerMechLogo,
+        startDate: "2022-08-01"
     },
     {
         year: "2023",
-        title: "SDE Intern at IDeaS Revenue Solutions",
-        description: "I dived into professional software development as an SDE Intern at IDeaS, working with Java 8, Spring MVC, and JUnit to develop and test web applications for the hospitality industry."
+        description: "I dived into professional software development as an SDE Intern at IDeaS, working with Java 8, Spring MVC, and JUnit to develop and test web applications for the hospitality industry.",
+        category: 'Experience',
+        company: "Integrated Decision and Systems, Inc.",
+        role: "Software Development Engineer Intern",
+        dateRange: "January 2023 - June 2023",
+        logo: IntegratedDecisionSystemsLogo,
+        startDate: "2023-01-01"
     },
     {
-        year: "2022-23",
-        title: "Publications and Projects",
-        description: "Passionate about software development, my work on various projects has led to two publications in computer vision and deep learning, reflecting my interest in cutting-edge technology."
+        year: "2024",
+        description: "I dived into professional software development as an SDE Intern at IDeaS, working with Java 8, Spring MVC, and JUnit to develop and test web applications for the hospitality industry.",
+        category: 'Experience',
+        company: "PreBuild Technologies",
+        role: "Software Development Engineer Intern",
+        dateRange: "May 2024 - August 2024",
+        logo: PreBuildTechnologiesLogo,
+        startDate: "2024-05-01"
+    },
+    {
+        year: "2025",
+        description: "I dived into professional software development as an SDE Intern at IDeaS, working with Java 8, Spring MVC, and JUnit to develop and test web applications for the hospitality industry.",
+        category: 'Experience',
+        company: "METY Technology",
+        role: "Software Engineer",
+        dateRange: "June 2025 - Present",
+        logo: METYLogo,
+        startDate: "2025-06-01"
+    },
+    {
+        year: "2025",
+        description: "I dived into professional software development as an SDE Intern at IDeaS, working with Java 8, Spring MVC, and JUnit to develop and test web applications for the hospitality industry.",
+        category: 'Experience',
+        company: "Northeastern University",
+        role: "Graduate Teaching Assistant",
+        dateRange: "August 2024 - December 2024",
+        logo: NortheasternLogo,
+        startDate: "2024-08-01"
     },
     {
         year: "2023-2025",
-        title: "Master's at Northeastern University",
-        description: "I recently graduated with a Master of Science in Computer Science degree at Northeastern University, I'm exploring new technologies to create impactful software, specializing in Backend, Full-Stack, and DevOps. I also have a strong interest in Machine Learning and AI."
+        title: "Master of Science in Computer Science",
+        description: "I recently graduated with a Master of Science in Computer Science degree at Northeastern University, I'm exploring new technologies to create impactful software, specializing in Backend, Full-Stack, and DevOps. I also have a strong interest in Machine Learning and AI.",
+        category: 'Education',
+        institution: "Northeastern University",
+        logo: NortheasternLogo,
+        startDate: "2023-09-01"
     }
 ];
+    
 
 export const projects = [
+    {
+        title: 'Student Life Assistance Project (S.L.A.P)',
+        description:
+            'The Student Life Assistance Project is a dual-access open source application (web + desktop) developed to help students navigate their academic and financial lives.',
+        imageUrl: slap,
+        link: 'https://www.slaproject.app',
+        skills: ['react', 'java', 'mongodb', 'mui', 'spring-boot', 'prometheus']
+    },
     {
         title: 'Boston Property Info',
         description:
@@ -87,4 +146,25 @@ export const projects = [
         link: 'https://ieeexplore.ieee.org/document/10099886',
         skills: ['python', 'tensorflow', 'opencv', 'deep-learning']
     },
+];
+
+export const publications = [
+    {
+        title: "Real-Time CNN-Based Face Mask Detection System",
+        authors: "Dr. Suvarna Pawar, Mrudul Jain, Prathamesh Akole, Suyog Mahagaonkar, Rupesh Kapse",
+        journal: "Taylor & Francis",
+        year: "2023",
+        description: "An automated face mask detection system using deep learning to monitor public safety compliance in real time, reducing manual monitoring requirements.",
+        link: "https://www.taylorfrancis.com/chapters/edit/10.1201/9781003342755-6/real-time-cnn-based-face-mask-detection-system-suvarna-pawar-mrudul-jain-prathamesh-akole-suyog-mahagaonkar-rupesh-kapse",
+        type: "Book Chapter"
+    },
+    {
+        title: "Real Time CCTV Violence Detection System",
+        authors: "Prathamesh Akole, Ishan Sarode, Tanvi Raut, Dnyanesh Mahadik, Dr. Pravin Futane",
+        journal: "IEEE Xplore",
+        year: "2023",
+        description: "An automated violence detection system leveraging CNNs and LSTMs for real-time analysis of video feeds, enhancing public safety and rapid incident response.",
+        link: "https://ieeexplore.ieee.org/document/10099886",
+        type: "Conference Paper"
+    }
 ]; 

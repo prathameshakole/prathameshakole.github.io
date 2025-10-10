@@ -4,7 +4,7 @@ import LogoP from '../../assets/images/logo-p.png';
 import LogoSubTitle from '../../assets/images/logo-sub.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faCode, faDiagramProject, faEnvelope, faHome, faNewspaper, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faDiagramProject, faEnvelope, faHome, faNewspaper, faUser, faCogs } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSection } from '../../SectionContext';
@@ -57,6 +57,9 @@ const Sidebar = () => {
                     <a href='/#about' className={`about-link ${location.pathname === '/' && currentSection === 'about' ? 'active' : ''}`} onClick={e => handleSectionClick(e, 'about')}>
                         <FontAwesomeIcon icon={faUser} color='#4d4d4e' />
                     </a>
+                    <a href='/#skills' className={`skills-link ${location.pathname === '/' && currentSection === 'skills' ? 'active' : ''}`} onClick={e => handleSectionClick(e, 'skills')}>
+                        <FontAwesomeIcon icon={faCogs} color='#4d4d4e' />
+                    </a>
                     <a href='/#projects' className={`project-link ${location.pathname === '/' && currentSection === 'projects' ? 'active' : ''}`} onClick={e => handleSectionClick(e, 'projects')}>
                         <FontAwesomeIcon icon={faDiagramProject} color='#4d4d4e' />
                     </a>
@@ -98,6 +101,10 @@ const Sidebar = () => {
                         <NavLink exact="true" to="/about" className={`about-link ${location.pathname === '/about' ? 'active' : ''}`} onClick={handleToggleSidebar}>
                             <FontAwesomeIcon icon={faUser} color='#4d4d4e' />
                             <span>About</span>
+                        </NavLink>
+                        <NavLink exact="true" to="/skills" className={`skills-link ${location.pathname === '/skills' ? 'active' : ''}`} onClick={handleToggleSidebar}>
+                            <FontAwesomeIcon icon={faCogs} color='#4d4d4e' />
+                            <span>Skills</span>
                         </NavLink>
                         <NavLink exact="true" to="/projects" className={`project-link ${location.pathname === '/projects' ? 'active' : ''}`} onClick={handleToggleSidebar}>
                             <FontAwesomeIcon icon={faDiagramProject} color='#4d4d4e' />

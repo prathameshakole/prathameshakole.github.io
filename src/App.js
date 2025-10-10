@@ -38,6 +38,9 @@ function App() {
     if (location.pathname === '/about') {
       const hash = '#about';
       navigate(`/${hash}`, { replace: true });
+    } else if (location.pathname === '/skills') {
+      const hash = '#skills';
+      navigate(`/${hash}`, { replace: true });
     } else if (location.pathname === '/resume') {
       const hash = '#resume';
       navigate(`/${hash}`, { replace: true });

@@ -4,7 +4,7 @@ import { styled, keyframes } from '@mui/system';
 import { Link } from 'react-router-dom';
 import TypingEffect from '../../shared/TypingEffect';
 import Logo from '../../Logo';
-import resumePDF from '../../../../assets/resume/feb_25.pdf';
+import resumePDF from '../../../../assets/resume/Prathamesh_Akole_Resume_Master_New.pdf';
 import { FaHandshake, FaLinkedin, FaEnvelope, FaTwitter } from 'react-icons/fa';
 
 const fadeIn = keyframes`
@@ -49,12 +49,12 @@ const HomeRight = styled(Box)(({ theme }) => ({
 
 const StyledButton = styled(Button)(({ theme }) => ({
     color: '#ffd700',
-    fontSize: '13px',
+    fontSize: '1.2rem',
     fontWeight: 400,
     letterSpacing: '2px',
     fontFamily: 'sans-serif',
     textDecoration: 'none',
-    padding: '10px 24px', // Make button wider for consistency
+    padding: '14px 32px', // Make button wider for consistency
     border: '1px solid #ffd700',
     marginTop: '25px',
     marginRight: '5px',
@@ -75,8 +75,8 @@ const Intro = () => (
                     variant="h1"
                     sx={{
                         color: '#fff',
-                        fontSize: '56px',
-                        lineHeight: '53px',
+                        fontSize: '5rem',
+                        lineHeight: '1.2',
                         fontFamily: 'Coolvetica',
                         fontWeight: 400,
                     }}
@@ -89,7 +89,7 @@ const Intro = () => (
                         color: '#8d8d8d',
                         marginTop: '20px',
                         fontWeight: 400,
-                        fontSize: '11px',
+                        fontSize: '1.5rem',
                         fontFamily: 'sans-serif',
                         letterSpacing: '3px',
                     }}
