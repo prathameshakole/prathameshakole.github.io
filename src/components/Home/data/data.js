@@ -14,7 +14,7 @@ export const milestones = [
     {
         year: "2019-2023",
         title: "Bachelor of Technology in Information Technology",
-        description: "My journey started in India, where I completed my Bachelor's in Information Technology, building a strong foundation for my technical skills.",
+        description: "Built a strong technical base in core programming, full-stack development and AI/ML, informed by practical, hands-on project experience.",
         category: 'Education',
         institution: "Vishwakarma Institute of Information Technology",
         logo: VITLogo,
@@ -22,7 +22,7 @@ export const milestones = [
     },
     {
         year: "2022",
-        description: "I dived into professional software development as an SDE Intern at IDeaS, working with Java 8, Spring MVC, and JUnit to develop and test web applications for the hospitality industry.",
+        description: "Executed end-to-end development of a rental platform with the MERN stack, applying strong UI/UX principles and modernizing CI/CD pipelines with Jenkins and Docker for faster deployment.",
         category: 'Experience',
         company: "PowerMech Engineering",
         role: "Software Development Engineer Intern",
@@ -32,7 +32,7 @@ export const milestones = [
     },
     {
         year: "2023",
-        description: "I dived into professional software development as an SDE Intern at IDeaS, working with Java 8, Spring MVC, and JUnit to develop and test web applications for the hospitality industry.",
+        description: "Contributed to the core product by developing with Java/Spring for dynamic pricing models, mastering Test-Driven Development (TDD) and enhancing database performance through indexing.",
         category: 'Experience',
         company: "Integrated Decision and Systems, Inc.",
         role: "Software Development Engineer Intern",
@@ -42,7 +42,7 @@ export const milestones = [
     },
     {
         year: "2024",
-        description: "I dived into professional software development as an SDE Intern at IDeaS, working with Java 8, Spring MVC, and JUnit to develop and test web applications for the hospitality industry.",
+        description: "Developed and optimized Java microservices for high availability, focusing on advanced backend scaling and the implementation of a robust, comprehensive error handling and logging framework.",
         category: 'Experience',
         company: "PreBuild Technologies",
         role: "Software Development Engineer Intern",
@@ -52,7 +52,7 @@ export const milestones = [
     },
     {
         year: "2025",
-        description: "I dived into professional software development as an SDE Intern at IDeaS, working with Java 8, Spring MVC, and JUnit to develop and test web applications for the hospitality industry.",
+        description: "Full-stack ownership of core B2B features using Python & React, enhancing development workflow through AI tools and custom platform launches.",
         category: 'Experience',
         company: "METY Technology",
         role: "Software Engineer",
@@ -62,7 +62,7 @@ export const milestones = [
     },
     {
         year: "2025",
-        description: "I dived into professional software development as an SDE Intern at IDeaS, working with Java 8, Spring MVC, and JUnit to develop and test web applications for the hospitality industry.",
+        description: "Mentored students in CS1800 Discrete Mathematics, providing academic guidance and leading a special study group of seven to deepen understanding of core mathematical and logical foundations.",
         category: 'Experience',
         company: "Northeastern University",
         role: "Graduate Teaching Assistant",
@@ -73,7 +73,7 @@ export const milestones = [
     {
         year: "2023-2025",
         title: "Master of Science in Computer Science",
-        description: "I recently graduated with a Master of Science in Computer Science degree at Northeastern University, I'm exploring new technologies to create impactful software, specializing in Backend, Full-Stack, and DevOps. I also have a strong interest in Machine Learning and AI.",
+        description: "Master's study emphasizing scalable microservices design and the optimization of high-performance, cloud-native systems.",
         category: 'Education',
         institution: "Northeastern University",
         logo: NortheasternLogo,
@@ -96,7 +96,7 @@ export const projects = [
         description:
             'A comprehensive platform that consolidates and presents detailed property information for Boston, empowering users with data-driven insights for smarter real estate decisions.',
         imageUrl: boston,
-        link: 'https://github.com/prathameshakole/boston-property-info-frontend',
+        link: 'https://bostonproperty.prathameshakole.com',
         skills: ['react', 'nodejs', 'mongodb', 'mui']
     },
     {
@@ -163,7 +163,7 @@ export const publications = [
         authors: "Prathamesh Akole, Ishan Sarode, Tanvi Raut, Dnyanesh Mahadik, Dr. Pravin Futane",
         journal: "IEEE Xplore",
         year: "2023",
-        description: "An automated violence detection system leveraging CNNs and LSTMs for real-time analysis of video feeds, enhancing public safety and rapid incident response.",
+        description: "An automated violence detection system leveraging MobileNetV2 and LSTMs for real-time analysis of video feeds, enhancing public safety and rapid incident response.",
         link: "https://ieeexplore.ieee.org/document/10099886",
         type: "Conference Paper"
     }
