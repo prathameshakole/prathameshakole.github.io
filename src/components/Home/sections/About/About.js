@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Box, Grid } from '@mui/material';
+import { Typography, Box, Grid, useTheme } from '@mui/material';
 import { styled, keyframes } from '@mui/system';
 import TimelineCarousel from '../../shared/TimelineCarousel';
 import PublicationCard from '../../shared/PublicationCard';
@@ -26,6 +26,7 @@ const AboutSection = styled(Box)(({ theme }) => ({
 }));
 
 const About = () => {
+    const theme = useTheme();
     const educationMilestones = milestones
         .filter((m) => m.category === 'Education')
         .sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
@@ -54,7 +55,16 @@ const About = () => {
                                 gap: '32px',
                                 maxWidth: '800px',
                                 margin: '0 auto',
-                                padding: '0 20px'
+                                padding: '0 20px',
+                                // Mobile responsive adjustments
+                                [theme.breakpoints.down('sm')]: {
+                                    gap: '24px',
+                                    padding: '0 16px',
+                                },
+                                [theme.breakpoints.between('sm', 'md')]: {
+                                    gap: '28px',
+                                    padding: '0 18px',
+                                }
                             }}>
                                 {educationMilestones.map((education, index) => (
                                     <Box key={index} sx={{ 
