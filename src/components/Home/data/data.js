@@ -9,6 +9,7 @@ import PowerMechLogo from '../../../assets/images/powermech_logo.png';
 import IntegratedDecisionSystemsLogo from '../../../assets/images/ideas_lo.jpg';
 import PreBuildTechnologiesLogo from '../../../assets/images/prebuild_logo.avif';
 import slap from '../../../assets/images/slap.png';
+import roulette from '../../../assets/images/roulogo.png'
 
 export const milestones = [
     {
@@ -19,6 +20,26 @@ export const milestones = [
         institution: "Vishwakarma Institute of Information Technology",
         logo: VITLogo,
         startDate: "2019-08-01"
+    },
+    {
+        year: "2022",
+        description: "Developed a real-time violence detection system from CCTV footage using deep learning techniques. Worked on data annotation, preprocessing, and model training under the guidance of Head of Department Prof. Dr. Pravin Futane. Published research paper at the 5th IEEE International Conference on Emerging Smart Computing & Informatics (IEEE ESCI-2023).",
+        category: 'Experience',
+        company: "Vishwakarma Institute of Information Technology",
+        role: "Research Intern",
+        dateRange: "June 2022 - August 2022",
+        logo: VITLogo,
+        startDate: "2022-06-01"
+    },
+    {
+        year: "2022",
+        description: "Developed a real-time CNN-based face mask detection system using deep learning and computer vision. Worked on data preprocessing, annotation, and model optimization with Convolutional Neural Networks. Published research work as a book chapter in Taylor & Francis.",
+        category: 'Experience',
+        company: "Vishwakarma Institute of Information Technology",
+        role: "Research Intern",
+        dateRange: "December 2021 - May 2022",
+        logo: VITLogo,
+        startDate: "2021-12-01"
     },
     {
         year: "2022",
@@ -83,6 +104,14 @@ export const milestones = [
     
 
 export const projects = [
+    {
+        title: 'Leetcode Roulette',
+        description:
+            'The Student Life Assistance Project is a dual-access open source application (web + desktop) developed to help students navigate their academic and financial lives.',
+        imageUrl: roulette,
+        link: 'https://leetroulette.slaproject.app',
+        skills: ['react', 'vite', 'mui']
+    },
     {
         title: 'Student Life Assistance Project (S.L.A.P)',
         description:

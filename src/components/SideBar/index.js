@@ -4,7 +4,7 @@ import LogoP from '../../assets/images/logo-p.png';
 import LogoSubTitle from '../../assets/images/logo-sub.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faCode, faDiagramProject, faEnvelope, faHome, faNewspaper, faUser, faCogs } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faDiagramProject, faHome, faNewspaper, faUser, faCogs } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSection } from '../../SectionContext';
@@ -109,10 +109,6 @@ const Sidebar = () => {
                         <NavLink exact="true" to="/projects" className={`project-link ${location.pathname === '/projects' ? 'active' : ''}`} onClick={handleToggleSidebar}>
                             <FontAwesomeIcon icon={faDiagramProject} color='#4d4d4e' />
                             <span>Projects</span>
-                        </NavLink>
-                        <NavLink exact="true" to="/contact" className={`contact-link ${location.pathname === '/contact' ? 'active' : ''}`} onClick={handleToggleSidebar}>
-                            <FontAwesomeIcon icon={faEnvelope} color='#4d4d4e' />
-                            <span>Contact</span>
                         </NavLink>
                     </nav>
                 </div>
