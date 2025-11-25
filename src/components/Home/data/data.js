@@ -101,13 +101,13 @@ export const milestones = [
         startDate: "2023-09-01"
     }
 ];
-    
+
 
 export const projects = [
     {
         title: 'Leetcode Roulette',
         description:
-            'The Student Life Assistance Project is a dual-access open source application (web + desktop) developed to help students navigate their academic and financial lives.',
+            'A web application that allows users to play a game of roulette with leetcode questions. Choose questions in your desired difficulty, rating and topic. Spin and Learn!',
         imageUrl: roulette,
         link: 'https://leetroulette.slaproject.app',
         skills: ['react', 'vite', 'mui']
