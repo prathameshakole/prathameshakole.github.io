@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.1508306f.css",
-    "main.js": "/static/js/main.f2d51a0c.js",
+    "main.css": "/static/css/main.61c95a39.css",
+    "main.js": "/static/js/main.a45f917c.js",
     "static/js/453.bcafc394.chunk.js": "/static/js/453.bcafc394.chunk.js",
     "static/media/fencingvideo2.mp4": "/static/media/fencingvideo2.55f124757e9bb0db1170.mp4",
     "static/media/slap.png": "/static/media/slap.d1efed1375dece310970.png",
@@ -19,12 +19,12 @@
     "static/media/Northeastern_Logo.png": "/static/media/Northeastern_Logo.0c47b349ac6ca8400a86.png",
     "static/media/CoolveticaRg-Regular.woff2": "/static/media/CoolveticaRg-Regular.7d1f3b1dd46ad6557a17.woff2",
     "index.html": "/index.html",
-    "main.1508306f.css.map": "/static/css/main.1508306f.css.map",
-    "main.f2d51a0c.js.map": "/static/js/main.f2d51a0c.js.map",
+    "main.61c95a39.css.map": "/static/css/main.61c95a39.css.map",
+    "main.a45f917c.js.map": "/static/js/main.a45f917c.js.map",
     "453.bcafc394.chunk.js.map": "/static/js/453.bcafc394.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1508306f.css",
-    "static/js/main.f2d51a0c.js"
+    "static/css/main.61c95a39.css",
+    "static/js/main.a45f917c.js"
   ]
 }
