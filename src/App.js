@@ -5,6 +5,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import Life from './components/Life';
+import Blog from './components/Blog';
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path='life' element={<Life />} />
         </Route>
+        <Route path='/blog' element={<Blog />} />
       </Routes>
     </>
   );

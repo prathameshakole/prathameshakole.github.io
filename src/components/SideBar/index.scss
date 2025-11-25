@@ -43,6 +43,7 @@
 
             &:hover {
                 color: #ffd700;
+
                 svg {
                     opacity: 0;
                 }
@@ -83,6 +84,12 @@
                 }
             }
 
+            &.skills-link {
+                &:after {
+                    content: 'SKILLS';
+                }
+            }
+
             &.resume-link {
                 &:after {
                     content: 'RESUME';
@@ -92,6 +99,12 @@
             &.project-link {
                 &:after {
                     content: 'PROJECTS';
+                }
+            }
+
+            &.blog-link {
+                &:after {
+                    content: 'BLOG';
                 }
             }
 
@@ -157,7 +170,7 @@
     background-color: #181818;
     z-index: 5;
     transition: all 0.3s ease-out;
-    
+
     &.open {
         left: 0;
     }

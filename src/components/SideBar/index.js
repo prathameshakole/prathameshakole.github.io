@@ -63,6 +63,9 @@ const Sidebar = () => {
                     <a href='/#projects' className={`project-link ${location.pathname === '/' && currentSection === 'projects' ? 'active' : ''}`} onClick={e => handleSectionClick(e, 'projects')}>
                         <FontAwesomeIcon icon={faDiagramProject} color='#4d4d4e' />
                     </a>
+                    <NavLink exact="true" activeclassname="active" className="blog-link" to="/blog">
+                        <FontAwesomeIcon icon={faNewspaper} color='#4d4d4e' />
+                    </NavLink>
                 </nav>
                 <ul>
                     <li>
@@ -109,6 +112,10 @@ const Sidebar = () => {
                         <NavLink exact="true" to="/projects" className={`project-link ${location.pathname === '/projects' ? 'active' : ''}`} onClick={handleToggleSidebar}>
                             <FontAwesomeIcon icon={faDiagramProject} color='#4d4d4e' />
                             <span>Projects</span>
+                        </NavLink>
+                        <NavLink exact="true" to="/blog" className="blog-link" onClick={handleToggleSidebar}>
+                            <FontAwesomeIcon icon={faNewspaper} color='#4d4d4e' />
+                            <span>Blog</span>
                         </NavLink>
                     </nav>
                 </div>
